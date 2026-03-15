@@ -61,7 +61,7 @@ function ProjectCard({ project, index, onTechClick }: { project: Project; index:
 
   const linkButtons: { label: string; url: string; primary?: boolean }[] = [];
   if (project.links && project.links.length > 0) {
-    project.links.forEach((l, i) => linkButtons.push({ ...l, primary: i === 0 }));
+    project.links.forEach((l, idx) => linkButtons.push({ ...l, primary: idx === 0 }));
   } else {
     if (project.liveLink) linkButtons.push({ label: "live site ↗", url: project.liveLink, primary: true });
     if (project.link) linkButtons.push({ label: "github →", url: project.link, primary: !project.liveLink });
@@ -84,7 +84,7 @@ function ProjectCard({ project, index, onTechClick }: { project: Project; index:
           )}
         </div>
         <div className="px-8 py-8 border-b-2 xl:border-b-0 xl:border-r-2 border-[#e2ddd2] flex flex-col">
-          <h3 className="font-['Cormorant_Garamond'] font-light text-[30px] text-[#16130e] leading-tight mb-4">{project.title}</h3>
+          <h3 className="font-['Cormorant_Garamond'] font-light text-[26px] text-[#16130e] leading-tight mb-4">{project.title}</h3>
           <p className="font-['DM_Mono'] text-[15px] leading-[1.85] text-[#2a231a] mb-6 flex-1">{project.description}</p>
           <div className="flex flex-wrap items-center gap-2 mb-6">
             {project.tech.slice(0, 4).map((t) => (
@@ -157,7 +157,7 @@ export function ProjectsPage() {
         <div className="flex items-end justify-between flex-wrap gap-4">
           <motion.p
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.18 }}
-            className="font-['DM_Mono'] text-[17px] leading-[1.9] text-[#3a342a] max-w-[600px]"
+            className="font-['DM_Mono'] text-[15px] leading-[1.9] text-[#3a342a] max-w-[600px]"
           >
             A selection of things I've built — hackathon wins, client sites, team projects, and systems work.
           </motion.p>
@@ -165,7 +165,7 @@ export function ProjectsPage() {
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.28 }}
             className="flex items-center gap-2"
           >
-            <span className="font-['Cormorant_Garamond'] font-light italic text-[48px] text-[#0b3d2e] leading-none">
+            <span className="font-['Cormorant_Garamond'] font-light italic text-[32px] text-[#0b3d2e] leading-none">
               {String(projects.length).padStart(2, "0")}
             </span>
             <span className="font-['DM_Mono'] font-semibold text-[13px] tracking-[0.14em] uppercase text-[#928c82]">
