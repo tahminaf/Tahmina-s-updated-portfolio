@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { personalInfo } from "../../data/portfolioData";
 
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 22 },
@@ -99,7 +102,7 @@ export function Contact() {
 
           <motion.span {...fadeUp(0.08)} className="block w-8 h-[2px] bg-[#a07c20] mb-8" />
 
-          <motion.p {...fadeUp(0.1)} className="font-['DM_Mono'] text-[17px] leading-[1.9] text-[#2a231a] mb-14 max-w-[420px]">
+          <motion.p {...fadeUp(0.1)} className="font-['DM_Mono'] text-[15px] leading-[1.9] text-[#2a231a] mb-14 max-w-[420px]">
             I'd love to get to know you. Whether it's about a role, a collaboration, or just to say hi — my inbox is always open.
           </motion.p>
 
@@ -125,7 +128,7 @@ export function Contact() {
                     {s.value}
                   </p>
                 </div>
-                <span className="ml-auto font-['DM_Mono'] text-[16px] text-[#c8c0b4] group-hover:text-[#0b3d2e] transition-colors duration-200">
+                <span className="ml-auto font-['DM_Mono'] text-[15px] text-[#c8c0b4] group-hover:text-[#0b3d2e] transition-colors duration-200">
                   →
                 </span>
               </motion.a>
@@ -147,7 +150,7 @@ export function Contact() {
         {/* ── RIGHT: form ── */}
         <div className="px-8 md:px-16 py-24 lg:py-32 flex flex-col justify-center bg-[#f7f4ed]">
 
-          <motion.p {...fadeUp(0.05)} className="font-['DM_Mono'] font-semibold text-[12px] tracking-[0.18em] uppercase text-[#928c82] mb-10">
+          <motion.p {...fadeUp(0.05)} className="font-['DM_Mono'] font-semibold text-[13px] tracking-[0.18em] uppercase text-[#928c82] mb-10">
             send a message
           </motion.p>
 

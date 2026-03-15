@@ -6,10 +6,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { personalInfo, navItems } from "../../data/portfolioData";
 import { useActiveSection } from "../../hooks/useActiveSection";
 
-function scrollTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-}
-
 interface Props {
   collapsed?: boolean;
   onScrollRequest: (id: string) => void;

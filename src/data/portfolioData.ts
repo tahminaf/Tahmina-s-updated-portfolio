@@ -47,6 +47,7 @@ export interface Experience {
   achievements: string[];
   skills: string[];
   dark?: boolean;
+  previewImg?: string;
 }
 
 export const experiences: Record<ExperienceType, Experience[]> = {
