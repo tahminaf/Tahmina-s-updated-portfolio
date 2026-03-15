@@ -29,7 +29,7 @@ export function Hero() {
       className="min-h-screen bg-[#fdfcf8] grid grid-cols-1 lg:grid-cols-[1fr_560px] border-b border-[#e2ddd2]"
     >
       {/* ── LEFT ── */}
-      <div className="flex flex-col justify-start px-8 md:px-16 pt-28 pb-16 lg:pt-32 lg:pb-20 lg:border-r border-[#e2ddd2]">
+      <div className="flex flex-col justify-start px-8 md:px-16 pt-24 pb-16 lg:pt-28 lg:pb-20 lg:border-r border-[#e2ddd2] overflow-hidden min-w-0">
 
         <motion.p
           {...fadeUp(0.06)}
@@ -40,8 +40,8 @@ export function Hero() {
 
         <motion.h1
           {...fadeUp(0.14)}
-          className="font-['Cormorant_Garamond'] font-light tracking-[-0.03em] text-[#16130e] leading-[0.9] mb-2 whitespace-nowrap"
-          style={{ fontSize: "clamp(52px, 8.5vw, 118px)" }}
+          className="font-['Cormorant_Garamond'] font-light tracking-[-0.03em] text-[#16130e] leading-[0.9] mb-2"
+          style={{ fontSize: "clamp(48px, 7vw, 96px)" }}
         >
           Tahmina{" "}
           <span className="italic text-[#0b3d2e]">Fayezi</span>

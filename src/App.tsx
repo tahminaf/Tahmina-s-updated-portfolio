@@ -65,10 +65,9 @@ export default function App() {
       />
 
       <motion.main
-        className="flex-1 min-w-0"
+        className="flex-1 min-w-0 ml-14 lg:ml-[360px]"
         animate={{ marginLeft: collapsed ? 56 : 360 }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        style={{ marginLeft: 360 }}
       >
         <TopBanner collapsed={collapsed} onToggle={() => setCollapsed((v) => !v)} />
 

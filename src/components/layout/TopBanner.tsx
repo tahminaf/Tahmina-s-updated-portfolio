@@ -11,7 +11,7 @@ export function TopBanner({ collapsed, onToggle }: Props) {
   const marqueeText = "software engineer · computer science · buffalo, ny · open to work · ";
 
   return (
-    <div className="w-full bg-[#fdfcf8] border-b border-[#e2ddd2] flex items-center h-20 overflow-hidden">
+    <div className="w-full bg-[#fdfcf8] border-b border-[#e2ddd2] flex items-center h-20 overflow-hidden sticky top-0 z-40">
 
       {/* Collapse toggle button */}
       <button
