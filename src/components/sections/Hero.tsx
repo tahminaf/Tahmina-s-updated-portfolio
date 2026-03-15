@@ -26,12 +26,11 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen bg-[#fdfcf8] grid grid-cols-1 lg:grid-cols-[1fr_480px] border-b border-[#e2ddd2]"
+      className="min-h-screen bg-[#fdfcf8] grid grid-cols-1 lg:grid-cols-[1fr_560px] border-b border-[#e2ddd2]"
     >
       {/* ── LEFT ── */}
       <div className="flex flex-col justify-start px-8 md:px-16 pt-28 pb-16 lg:pt-32 lg:pb-20 lg:border-r border-[#e2ddd2]">
 
-        {/* Matches About section's "follow along" label exactly */}
         <motion.p
           {...fadeUp(0.06)}
           className="font-['DM_Mono'] font-semibold text-[13px] tracking-[0.18em] uppercase text-[#8a6800] mb-6"
@@ -39,11 +38,10 @@ export function Hero() {
           software engineer &nbsp;·&nbsp; buffalo, ny
         </motion.p>
 
-        {/* Name — wider, fills more horizontal space */}
         <motion.h1
           {...fadeUp(0.14)}
           className="font-['Cormorant_Garamond'] font-light tracking-[-0.03em] text-[#16130e] leading-[0.9] mb-2 whitespace-nowrap"
-          style={{ fontSize: "clamp(60px, 9.5vw, 128px)" }}
+          style={{ fontSize: "clamp(52px, 8.5vw, 118px)" }}
         >
           Tahmina{" "}
           <span className="italic text-[#0b3d2e]">Fayezi</span>
@@ -52,14 +50,14 @@ export function Hero() {
         <motion.span {...fadeUp(0.2)} className="block w-full h-[2px] bg-[#e8d9a8] mb-6" />
 
         <motion.div {...fadeUp(0.26)} className="flex items-center gap-4 mb-7">
-          <span className="font-['DM_Mono'] font-semibold text-[23px] tracking-[0.08em] text-[#2a231a]">
+          <span className="font-['DM_Mono'] font-semibold text-[15px] tracking-[0.08em] text-[#2a231a]">
             {personalInfo.subtitle}
           </span>
         </motion.div>
 
         <motion.p
           {...fadeUp(0.32)}
-          className="font-['DM_Mono'] text-[20px] leading-[1.9] text-[#2a231a] mb-10"
+          className="font-['DM_Mono'] text-[15px] leading-[1.9] text-[#2a231a] max-w-[720px] mb-10"
         >
           {personalInfo.bio}
         </motion.p>
@@ -87,6 +85,7 @@ export function Hero() {
           </a>
         </motion.div>
 
+        {/* Stats strip — pulled up directly after buttons, no mt-auto */}
         <motion.div
           {...fadeUp(0.48)}
           className="grid grid-cols-2 md:grid-cols-4 border-2 border-[#e2ddd2] rounded-xl overflow-hidden"
@@ -111,13 +110,22 @@ export function Hero() {
 
       {/* ── RIGHT: photo ── */}
       <div className="hidden lg:flex flex-col justify-start pt-28 lg:pt-32 px-10 pb-12 bg-[#f7f4ed]">
-        <motion.div {...fadeUp(0.2)} className="relative w-full">
+        <motion.div
+          {...fadeUp(0.2)}
+          className="relative w-full"
+        >
+          {/* Gold offset frame */}
           <div className="absolute -top-3 -left-3 right-3 bottom-3 border-2 border-[#d4b86a] rounded-[8px] pointer-events-none z-0" />
+
           <div
             className="relative w-full rounded-[8px] overflow-hidden border-2 border-[#c8c0b4] z-10"
             style={{ aspectRatio: "5/7" }}
           >
-            <img src={tahminaImg} alt="Tahmina Fayezi" className="w-full h-full object-cover object-top" />
+            <img
+              src={tahminaImg}
+              alt="Tahmina Fayezi"
+              className="w-full h-full object-cover object-top"
+            />
           </div>
         </motion.div>
       </div>
