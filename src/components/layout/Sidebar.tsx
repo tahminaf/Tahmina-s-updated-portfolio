@@ -9,6 +9,7 @@ import { useActiveSection } from "../../hooks/useActiveSection";
 interface Props {
   collapsed?: boolean;
   onScrollRequest: (id: string) => void;
+  onToggle: () => void;
 }
 
 /* ── Icons for each nav item ── */
@@ -53,7 +54,7 @@ const NavIcon = ({ id, className }: { id: string; className?: string }) => {
   return null;
 };
 
-export function Sidebar({ collapsed = false, onScrollRequest }: Props) {
+export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props) {
   const active = useActiveSection(navItems.map((n) => n.id));
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
@@ -113,7 +114,7 @@ export function Sidebar({ collapsed = false, onScrollRequest }: Props) {
           className="absolute inset-0 flex flex-col items-center justify-between py-4 z-10"
           style={{ pointerEvents: collapsed ? "auto" : "none", width: 56 }}
         >
-          <div className="flex flex-col items-center w-full">
+          <div className="flex flex-col items-center gap-1 w-full">
             {navItems.map((item) => {
               const activeItem = isActive(item.id);
               return (
@@ -137,11 +138,24 @@ export function Sidebar({ collapsed = false, onScrollRequest }: Props) {
               );
             })}
           </div>
-          <motion.span
-            className="w-[9px] h-[9px] rounded-full bg-[#4dba87] block mb-3 flex-shrink-0"
-            animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ duration: 2.5, repeat: Infinity }}
-          />
+          <div className="flex flex-col items-center gap-3 mb-3">
+            {/* Expand button */}
+            <button
+              onClick={onToggle}
+              title="Expand sidebar"
+              className="w-full flex items-center justify-center py-3 text-[#3a7a5e] hover:text-[#88bfa4] transition-colors"
+            >
+              <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="13 17 18 12 13 7" />
+                <polyline points="6 17 11 12 6 7" />
+              </svg>
+            </button>
+            <motion.span
+              className="w-[9px] h-[9px] rounded-full bg-[#4dba87] block flex-shrink-0"
+              animate={{ opacity: [1, 0.3, 1] }}
+              transition={{ duration: 2.5, repeat: Infinity }}
+            />
+          </div>
         </motion.div>
 
         {/* ── EXPANDED: full sidebar ── */}
@@ -219,7 +233,7 @@ export function Sidebar({ collapsed = false, onScrollRequest }: Props) {
                 </nav>
               </div>
 
-              {/* Status */}
+              {/* Status + collapse */}
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-3 bg-white/[0.07] border border-white/[0.12] rounded-full px-5 py-3 w-fit">
                   <motion.span
@@ -234,6 +248,21 @@ export function Sidebar({ collapsed = false, onScrollRequest }: Props) {
                 <p className="font-['DM_Mono'] font-semibold text-[14px] tracking-[0.06em] text-[#3a7a5e]">
                   {personalInfo.location}
                 </p>
+                {/* Collapse button — desktop only */}
+                <button
+                  onClick={onToggle}
+                  className="hidden lg:flex items-center gap-3 mt-2 text-[#3a7a5e] hover:text-[#88bfa4] transition-colors duration-200 group w-fit"
+                  aria-label="Collapse sidebar"
+                >
+                  <div className="flex flex-col gap-[5px]">
+                    <span className="block w-5 h-[2px] bg-current rounded-full" />
+                    <span className="block w-3 h-[2px] bg-current rounded-full" />
+                    <span className="block w-5 h-[2px] bg-current rounded-full" />
+                  </div>
+                  <span className="font-['DM_Mono'] font-semibold text-[12px] tracking-[0.1em] uppercase">
+                    collapse
+                  </span>
+                </button>
               </div>
             </motion.div>
           )}

@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Routes, Route } from "react-router-dom";
-import { motion } from "framer-motion";
 import { Sidebar } from "./components/layout/Sidebar";
 import { Footer } from "./components/layout/Footer";
 import { TopBanner } from "./components/layout/TopBanner";
@@ -20,22 +19,14 @@ function HomePage({ scrollTarget, clearTarget }: { scrollTarget: string | null; 
   useEffect(() => {
     const id = scrollTargetRef.current;
     if (!id) return;
-
     let tries = 0;
     const interval = setInterval(() => {
       const el = document.getElementById(id);
       if (el) {
         clearInterval(interval);
-        // small delay so layout settles
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: "smooth", block: "start" });
-          clearTarget();
-        }, 50);
-      } else if (++tries > 20) {
-        clearInterval(interval);
-      }
+        setTimeout(() => { el.scrollIntoView({ behavior: "smooth", block: "start" }); clearTarget(); }, 50);
+      } else if (++tries > 20) clearInterval(interval);
     }, 80);
-
     return () => clearInterval(interval);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrollTarget]);
@@ -54,22 +45,36 @@ function HomePage({ scrollTarget, clearTarget }: { scrollTarget: string | null; 
 export default function App() {
   const [collapsed, setCollapsed] = useState(false);
   const [scrollTarget, setScrollTarget] = useState<string | null>(null);
-
+  const [isDesktop, setIsDesktop] = useState(false);
   const clearTarget = useCallback(() => setScrollTarget(null), []);
 
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    setIsDesktop(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  // On mobile: always 56px (sidebar strip). On desktop: 360 or 56 based on collapsed.
+  const marginLeft = isDesktop ? (collapsed ? 56 : 360) : 56;
+
   return (
-    <div className="bg-[#fdfcf8] min-h-screen flex">
+    <div className="bg-[#fdfcf8] min-h-screen">
       <Sidebar
         collapsed={collapsed}
         onScrollRequest={setScrollTarget}
+        onToggle={() => setCollapsed((v) => !v)}
       />
 
-      <motion.main
-        className="flex-1 min-w-0 ml-14 lg:ml-[360px]"
-        animate={{ marginLeft: collapsed ? 56 : 360 }}
-        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      <div
+        className="min-w-0 pt-20"
+        style={{
+          marginLeft,
+          transition: isDesktop ? "margin-left 0.3s cubic-bezier(0.16,1,0.3,1)" : "none",
+        }}
       >
-        <TopBanner collapsed={collapsed} onToggle={() => setCollapsed((v) => !v)} />
+        <TopBanner />
 
         <Routes>
           <Route path="/" element={
@@ -78,7 +83,7 @@ export default function App() {
           <Route path="/experience" element={<><ExperiencePage /><Footer /></>} />
           <Route path="/projects" element={<><ProjectsPage /><Footer /></>} />
         </Routes>
-      </motion.main>
+      </div>
     </div>
   );
 }

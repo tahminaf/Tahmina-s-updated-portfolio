@@ -29,7 +29,7 @@ export function Hero() {
       className="min-h-screen bg-[#fdfcf8] grid grid-cols-1 lg:grid-cols-[1fr_560px] border-b border-[#e2ddd2]"
     >
       {/* ── LEFT ── */}
-      <div className="flex flex-col justify-start px-8 md:px-16 pt-24 pb-16 lg:pt-28 lg:pb-20 lg:border-r border-[#e2ddd2] overflow-hidden min-w-0">
+      <div className="flex flex-col justify-start px-8 md:px-16 pt-10 pb-16 lg:pt-14 lg:pb-20 lg:border-r border-[#e2ddd2] overflow-hidden min-w-0">
 
         <motion.p
           {...fadeUp(0.06)}
@@ -109,7 +109,7 @@ export function Hero() {
       </div>
 
       {/* ── RIGHT: photo ── */}
-      <div className="hidden lg:flex flex-col justify-start pt-28 lg:pt-32 px-10 pb-12 bg-[#f7f4ed]">
+      <div className="hidden lg:flex flex-col justify-start pt-14 px-10 pb-12 bg-[#f7f4ed]">
         <motion.div
           {...fadeUp(0.2)}
           className="relative w-full"
