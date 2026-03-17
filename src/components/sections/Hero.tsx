@@ -104,7 +104,7 @@ export function Hero() {
               <p className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#928c82] mb-1 sm:mb-2">
                 {stat.label}
               </p>
-              <p className="font-['Cormorant_Garamond'] font-light text-[18px] sm:text-[22px] md:text-[24px] text-[#16130e] tracking-wide leading-snug">
+              <p className="font-['Cormorant_Garamond'] font-light text-[18px] sm:text-[22px] md:text-[20px] lg:text-[18px] xl:text-[22px] text-[#16130e] tracking-wide leading-snug">
                 {stat.value}
               </p>
             </div>
