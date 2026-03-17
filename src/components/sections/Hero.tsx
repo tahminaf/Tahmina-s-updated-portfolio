@@ -16,9 +16,10 @@ function scrollTo(id: string) {
 }
 
 const stats = [
-  { label: "school",   value: "University at Buffalo Honors College" },
+  { label: "school",   value: "UB Honors College" },
   { label: "major",    value: "Computer Science" },
   { label: "based in", value: "Buffalo, NY" },
+  { label: "status",   value: "Open to Work" },
 ];
 
 export function Hero() {
@@ -40,7 +41,7 @@ export function Hero() {
         <motion.h1
           {...fadeUp(0.14)}
           className="font-['Cormorant_Garamond'] font-light tracking-[-0.03em] text-[#16130e] leading-[0.9] mb-2"
-          style={{ fontSize: "clamp(44px, 8vw, 96px)" }}
+          style={{ fontSize: "clamp(44px, 5vw, 96px)" }}
         >
           Tahmina{" "}
           <span className="italic text-[#0b3d2e]">Fayezi</span>
@@ -87,18 +88,19 @@ export function Hero() {
         {/* Stats pills */}
         <motion.div
           {...fadeUp(0.48)}
-          className="flex flex-wrap gap-2"
+          className="flex gap-2 overflow-x-auto pb-1 scrollbar-none"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex items-center gap-2 px-4 py-2.5 rounded-full border-2 border-[#e2ddd2] bg-[#f7f4ed]"
+              className="flex items-center gap-2.5 px-5 py-3 rounded-full border-2 border-[#e2ddd2] bg-[#f7f4ed] flex-shrink-0 whitespace-nowrap"
             >
-              <span className="font-['DM_Mono'] font-semibold text-[10px] tracking-[0.14em] uppercase text-[#928c82]">
+              <span className="font-['DM_Mono'] font-semibold text-[11px] tracking-[0.14em] uppercase text-[#928c82]">
                 {stat.label}
               </span>
-              <span className="w-[1px] h-3 bg-[#e2ddd2]" />
-              <span className="font-['DM_Mono'] font-semibold text-[12px] text-[#0b3d2e]">
+              <span className="w-[1px] h-3.5 bg-[#e2ddd2]" />
+              <span className="font-['DM_Mono'] font-semibold text-[13px] text-[#0b3d2e]">
                 {stat.value}
               </span>
             </div>
