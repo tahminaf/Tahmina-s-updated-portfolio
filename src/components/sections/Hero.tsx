@@ -16,9 +16,10 @@ function scrollTo(id: string) {
 }
 
 const stats = [
-  { label: "school",   value: "University at Buffalo Honors College" },
+  { label: "school",   value: "UB Honors College" },
   { label: "major",    value: "Computer Science" },
   { label: "based in", value: "Buffalo, NY" },
+  { label: "status",   value: "Open to Work" },
 ];
 
 export function Hero() {
@@ -28,7 +29,7 @@ export function Hero() {
       className="min-h-screen bg-[#fdfcf8] grid grid-cols-1 lg:grid-cols-[1fr_480px] xl:grid-cols-[1fr_560px] border-b border-[#e2ddd2]"
     >
       {/* ── LEFT ── */}
-      <div className="flex flex-col justify-start px-5 sm:px-8 md:px-12 lg:px-16 pt-8 sm:pt-10 pb-12 lg:pt-14 lg:pb-20 lg:border-r border-[#e2ddd2] overflow-hidden min-w-0">
+      <div className="flex flex-col justify-start px-5 sm:px-8 md:px-12 lg:px-16 pt-8 sm:pt-10 pb-12 lg:pt-14 lg:pb-20 lg:border-r border-[#e2ddd2] min-w-0">
 
         <motion.p
           {...fadeUp(0.06)}
@@ -61,16 +62,16 @@ export function Hero() {
           {personalInfo.bio}
         </motion.p>
 
-        <motion.div {...fadeUp(0.4)} className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-10">
+        <motion.div {...fadeUp(0.4)} className="flex flex-nowrap gap-2 mb-8 sm:mb-10">
           <button
             onClick={() => scrollTo("projects")}
-            className="font-['DM_Mono'] font-semibold text-[13px] sm:text-[15px] tracking-[0.08em] lowercase px-5 sm:px-7 py-3 sm:py-3.5 rounded-full bg-[#0b3d2e] text-white hover:bg-[#145c42] transition-colors duration-200 cursor-pointer"
+            className="font-['DM_Mono'] font-semibold text-[11px] tracking-[0.08em] lowercase px-4 py-2 rounded-full bg-[#0b3d2e] text-white hover:bg-[#145c42] transition-colors duration-200 cursor-pointer whitespace-nowrap"
           >
             view my work
           </button>
           <button
             onClick={() => scrollTo("contact")}
-            className="font-['DM_Mono'] font-semibold text-[13px] sm:text-[15px] tracking-[0.08em] lowercase px-5 sm:px-7 py-3 sm:py-3.5 rounded-full border-2 border-[#928c82] text-[#16130e] hover:border-[#16130e] transition-all duration-200 cursor-pointer"
+            className="font-['DM_Mono'] font-semibold text-[11px] tracking-[0.08em] lowercase px-4 py-2 rounded-full border-2 border-[#928c82] text-[#16130e] hover:border-[#16130e] transition-all duration-200 cursor-pointer whitespace-nowrap"
           >
             say hello
           </button>
@@ -78,28 +79,24 @@ export function Hero() {
             href={personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-['DM_Mono'] font-semibold text-[13px] sm:text-[15px] tracking-[0.08em] lowercase px-5 sm:px-7 py-3 sm:py-3.5 rounded-full border-2 border-[#d4b86a] text-[#8a6800] hover:bg-[#faf3e0] transition-all duration-200"
+            className="font-['DM_Mono'] font-semibold text-[11px] tracking-[0.08em] lowercase px-4 py-2 rounded-full border-2 border-[#d4b86a] text-[#8a6800] hover:bg-[#faf3e0] transition-all duration-200 whitespace-nowrap"
           >
             résumé ↗
           </a>
         </motion.div>
 
-        {/* Stats pills */}
-        <motion.div
-          {...fadeUp(0.48)}
-          className="flex gap-2 overflow-x-auto pb-1 scrollbar-none"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
+        {/* Stats pills — wrap freely */}
+        <motion.div {...fadeUp(0.48)} className="flex flex-wrap gap-2">
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="flex items-center gap-2.5 px-5 py-3 rounded-full border-2 border-[#e2ddd2] bg-[#f7f4ed] flex-shrink-0 whitespace-nowrap"
+              className="flex items-center gap-2 px-4 py-2 rounded-full border-2 border-[#e2ddd2] bg-[#f7f4ed]"
             >
-              <span className="font-['DM_Mono'] font-semibold text-[11px] tracking-[0.14em] uppercase text-[#928c82]">
+              <span className="font-['DM_Mono'] font-semibold text-[10px] tracking-[0.14em] uppercase text-[#928c82]">
                 {stat.label}
               </span>
-              <span className="w-[1px] h-3.5 bg-[#e2ddd2]" />
-              <span className="font-['DM_Mono'] font-semibold text-[13px] text-[#0b3d2e]">
+              <span className="w-[1px] h-3 bg-[#e2ddd2]" />
+              <span className="font-['DM_Mono'] font-semibold text-[11px] text-[#0b3d2e]">
                 {stat.value}
               </span>
             </div>
