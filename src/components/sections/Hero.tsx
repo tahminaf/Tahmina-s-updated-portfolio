@@ -19,7 +19,6 @@ const stats = [
   { label: "school",   value: "University at Buffalo Honors College" },
   { label: "major",    value: "Computer Science" },
   { label: "based in", value: "Buffalo, NY" },
-  { label: "status",   value: "Open to Work" },
 ];
 
 export function Hero() {
@@ -85,28 +84,23 @@ export function Hero() {
           </a>
         </motion.div>
 
-        {/* Stats strip — 2-col on mobile, 4-col on md+ */}
+        {/* Stats pills */}
         <motion.div
           {...fadeUp(0.48)}
-          className="grid grid-cols-2 md:grid-cols-4 border-2 border-[#e2ddd2] rounded-xl overflow-hidden"
+          className="flex flex-wrap gap-2"
         >
-          {stats.map((stat, i) => (
+          {stats.map((stat) => (
             <div
               key={stat.label}
-              className={`px-4 sm:px-5 py-5 sm:py-7 bg-[#f7f4ed] ${
-                // right border except last in each row
-                i % 2 === 0 ? "border-r-2 border-[#e2ddd2]" : ""
-              } ${
-                // bottom border for first two on mobile (row 1)
-                i < 2 ? "border-b-2 md:border-b-0 border-[#e2ddd2]" : ""
-              }`}
+              className="flex items-center gap-2 px-4 py-2.5 rounded-full border-2 border-[#e2ddd2] bg-[#f7f4ed]"
             >
-              <p className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#928c82] mb-1 sm:mb-2">
+              <span className="font-['DM_Mono'] font-semibold text-[10px] tracking-[0.14em] uppercase text-[#928c82]">
                 {stat.label}
-              </p>
-              <p className="font-['Cormorant_Garamond'] font-light text-[18px] sm:text-[22px] md:text-[20px] lg:text-[18px] xl:text-[22px] text-[#16130e] tracking-wide leading-snug">
+              </span>
+              <span className="w-[1px] h-3 bg-[#e2ddd2]" />
+              <span className="font-['DM_Mono'] font-semibold text-[12px] text-[#0b3d2e]">
                 {stat.value}
-              </p>
+              </span>
             </div>
           ))}
         </motion.div>

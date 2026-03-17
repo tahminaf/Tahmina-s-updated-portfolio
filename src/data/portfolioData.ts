@@ -4,7 +4,7 @@ export const personalInfo = {
   role: "Software Engineer",
   location: "Buffalo, NY",
   subtitle: "CS student & builder",
-  bio: "Hi! I'm Tahmina! I love building thoughtful, purposeful software — from personal websites to award-winning AI tools. I have an interest in full stack web development, and am open to learning more about my passion. Outside of Computer Science, I also love to travel, read, and write poetry. Feel free to reach out and say hi!",
+  bio: "Hi! I'm Tahmina! I love building thoughtful, purposeful software, from personal websites to award-winning AI tools. I have an interest in full stack web development, and am open to learning more about my passion. Outside of Computer Science, I also love to travel, read, and write poetry. Feel free to reach out and say hi!",
   aboutP1:
     "I'm a first-generation Computer Science student at the University at Buffalo with a passion for building software that is both beautiful and purposeful. I thrive at the intersection of design and engineering — whether crafting full-stack web applications, exploring AI-powered tools, or leading community initiatives.",
   aboutP2:
