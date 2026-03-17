@@ -22,6 +22,7 @@ const previewImages: Record<string, string> = {
 };
 
 const imagePosition: Record<string, string> = {
+  "01": "center center",
   "05": "left bottom",
 };
 

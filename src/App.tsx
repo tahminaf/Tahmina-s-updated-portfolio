@@ -56,7 +56,6 @@ export default function App() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // On mobile: always 56px (sidebar strip). On desktop: 360 or 56 based on collapsed.
   const marginLeft = isDesktop ? (collapsed ? 56 : 360) : 56;
 
   return (
@@ -68,13 +67,15 @@ export default function App() {
       />
 
       <div
-        className="min-w-0 pt-20"
+        className="min-w-0"
         style={{
           marginLeft,
           transition: isDesktop ? "margin-left 0.3s cubic-bezier(0.16,1,0.3,1)" : "none",
         }}
       >
         <TopBanner />
+        {/* Spacer matching fixed TopBanner height */}
+        <div className="h-20" />
 
         <Routes>
           <Route path="/" element={

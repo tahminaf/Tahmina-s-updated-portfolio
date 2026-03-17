@@ -13,6 +13,8 @@
 
   html {
     scroll-behavior: auto;
+    /* Prevent horizontal overflow on mobile */
+    overflow-x: hidden;
   }
 
   body {
@@ -23,8 +25,13 @@
     font-size: 16px;
     line-height: 1.75;
     overflow-x: hidden;
+    /* Allow vertical scroll everywhere */
+    overflow-y: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Prevent text size inflation on mobile */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   /* Scrollbar */
@@ -44,10 +51,20 @@
     background: #c2d9cc;
     color: #0b3d2e;
   }
+
+  /* Ensure images don't overflow their containers */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Tap highlight color for mobile */
+  a, button {
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 @layer utilities {
-  /* Sidebar transition helper */
   .sidebar-offset {
     margin-left: 240px;
   }
