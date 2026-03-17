@@ -16,10 +16,9 @@ function scrollTo(id: string) {
 }
 
 const stats = [
-  { label: "school",   value: "UB Honors College" },
+  { label: "school",   value: "University at Buffalo Honors College" },
   { label: "major",    value: "Computer Science" },
   { label: "based in", value: "Buffalo, NY" },
-  { label: "status",   value: "Open to Work" },
 ];
 
 export function Hero() {
