@@ -239,8 +239,8 @@ export const projects: Project[] = [
 
 export const navItems = [
   { id: "home", label: "home" },
-  { id: "tech", label: "tech stack" },
-  { id: "about", label: "follow along" },
+  { id: "tech", label: "toolkit" },
+  { id: "archive", label: "archive" },
   { id: "experiences", label: "experience" },
   { id: "projects", label: "projects" },
   { id: "contact", label: "contact" },

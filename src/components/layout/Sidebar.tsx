@@ -51,6 +51,17 @@ const NavIcon = ({ id, className }: { id: string; className?: string }) => {
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
     </svg>
   );
+  if (id === "tech") return (
+    <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" />
+    </svg>
+  );
+  if (id === "archive") return (
+    <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+      <circle cx="12" cy="13" r="4" />
+    </svg>
+  );
   return null;
 };
 
@@ -62,7 +73,10 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
 
   const isExperiencePage = location.pathname === "/experience";
   const isProjectsPage = location.pathname === "/projects";
-  const isOnSubPage = isExperiencePage || isProjectsPage;
+  const isTechPage = location.pathname === "/toolkit";
+  const isPhotosPage = location.pathname === "/photos";
+  
+  const isOnSubPage = isExperiencePage || isProjectsPage || isTechPage || isPhotosPage;
 
   function handleNavClick(id: string) {
     if (id === "experiences") {
@@ -70,6 +84,12 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
       window.scrollTo(0, 0);
     } else if (id === "projects") {
       navigate("/projects");
+      window.scrollTo(0, 0);
+    } else if (id === "archive") {
+      navigate("/photos");
+      window.scrollTo(0, 0);
+    } else if (id === "tech") {
+      navigate("/toolkit");
       window.scrollTo(0, 0);
     } else if (isOnSubPage) {
       onScrollRequest(id);
@@ -82,6 +102,9 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
   function isActive(id: string) {
     if (id === "experiences") return isExperiencePage;
     if (id === "projects") return isProjectsPage;
+    if (id === "tech") return isTechPage;
+    if (id === "archive") return isPhotosPage;
+    
     return !isOnSubPage && active === id;
   }
 

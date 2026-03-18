@@ -6,11 +6,12 @@ import { Sidebar } from "./components/layout/Sidebar";
 import { Footer } from "./components/layout/Footer";
 import { TopBanner } from "./components/layout/TopBanner";
 import { Hero } from "./components/sections/Hero";
-import { TechStack } from "./components/sections/TechStack";
 import { About } from "./components/sections/About";
 import { ProjectsPage } from "./components/sections/ProjectsPage";
 import { Contact } from "./components/sections/Contact";
 import { ExperiencePage } from "./components/sections/ExperiencePage";
+import { PhotosPage } from "./components/sections/PhotosPage";
+import { TechStackPage } from "./components/sections/TechStackPage";
 
 function HomePage({ scrollTarget, clearTarget }: { scrollTarget: string | null; clearTarget: () => void }) {
   const scrollTargetRef = useRef(scrollTarget);
@@ -34,7 +35,6 @@ function HomePage({ scrollTarget, clearTarget }: { scrollTarget: string | null; 
   return (
     <>
       <Hero />
-      <TechStack />
       <About />
       <Contact />
       <Footer />
@@ -83,6 +83,8 @@ export default function App() {
           } />
           <Route path="/experience" element={<><ExperiencePage /><Footer /></>} />
           <Route path="/projects" element={<><ProjectsPage /><Footer /></>} />
+          <Route path="/photos" element={<><PhotosPage /><Footer /></>} />
+          <Route path="/toolkit" element={<><TechStackPage /><Footer /></>} />
         </Routes>
       </div>
     </div>
