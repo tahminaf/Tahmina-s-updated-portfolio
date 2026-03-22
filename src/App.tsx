@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Sidebar } from "./components/layout/Sidebar";
 import { Footer } from "./components/layout/Footer";
 import { TopBanner } from "./components/layout/TopBanner";
@@ -12,6 +12,23 @@ import { Contact } from "./components/sections/Contact";
 import { ExperiencePage } from "./components/sections/ExperiencePage";
 import { PhotosPage } from "./components/sections/PhotosPage";
 import { TechStackPage } from "./components/sections/TechStackPage";
+
+// Scrolls to top on every route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    // Disable browser's automatic scroll restoration
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    });
+  }, [pathname]);
+  return null;
+}
 
 function HomePage({ scrollTarget, clearTarget }: { scrollTarget: string | null; clearTarget: () => void }) {
   const scrollTargetRef = useRef(scrollTarget);
@@ -73,6 +90,7 @@ export default function App() {
           transition: isDesktop ? "margin-left 0.3s cubic-bezier(0.16,1,0.3,1)" : "none",
         }}
       >
+        <ScrollToTop />
         <TopBanner />
         {/* Spacer matching fixed TopBanner height */}
         <div className="h-20" />

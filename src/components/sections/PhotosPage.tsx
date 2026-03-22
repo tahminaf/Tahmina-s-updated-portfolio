@@ -44,18 +44,6 @@ function filler(i: number, label: string, caption: string, tags: string[]): Phot
 
 export const photoDirs: PhotoDir[] = [
   {
-    name: "college-life",
-    label: "college life",
-    photos: [
-      filler(0, "college", "UB Hacking 2025 · AI/ML Track Win", ["hackathon","ub","team"]),
-      filler(1, "college", "UB Forge · First Light Fall 2025", ["forge","community"]),
-      filler(2, "college", "M&T Bank Internship · Summer 2025", ["work","internship"]),
-      filler(3, "college", "UB Campus · Spring 2024", ["ub","campus"]),
-      filler(4, "college", "Red Bull Basement Workshop", ["leadership","redbull"]),
-      filler(5, "college", "Late nights in the library", ["ub","study"]),
-    ],
-  },
-  {
     name: "mt-bank",
     label: "m&t bank",
     photos: [
@@ -375,6 +363,16 @@ export function PhotosPage() {
   const [lightboxDir, setLightboxDir] = useState<PhotoDir | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+
+  // Always start at the top of the page
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, []);
+
+  // Always start at the top of the page
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, []);
 
   const cwdLabel = useCallback(() => {
     return "~/photos" + (cwd === "/" ? "" : "/" + cwd);
