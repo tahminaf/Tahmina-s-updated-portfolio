@@ -44,6 +44,18 @@ function filler(i: number, label: string, caption: string, tags: string[]): Phot
 
 export const photoDirs: PhotoDir[] = [
   {
+    name: "college-life",
+    label: "college life",
+    photos: [
+      filler(0, "college", "UB Hacking 2025 · AI/ML Track Win", ["hackathon","ub","team"]),
+      filler(1, "college", "UB Forge · First Light Fall 2025", ["forge","community"]),
+      filler(2, "college", "M&T Bank Internship · Summer 2025", ["work","internship"]),
+      filler(3, "college", "UB Campus · Spring 2024", ["ub","campus"]),
+      filler(4, "college", "Red Bull Basement Workshop", ["leadership","redbull"]),
+      filler(5, "college", "Late nights in the library", ["ub","study"]),
+    ],
+  },
+  {
     name: "mt-bank",
     label: "m&t bank",
     photos: [
@@ -77,7 +89,7 @@ export const photoDirs: PhotoDir[] = [
     photos: [
       { filename: "IMG_3292.JPG",    src: "/puerto%20rico/IMG_3292.JPG",    caption: "made it to the top of El Yunque rainforest! 🌿 ",                       tags: ["puertorico","hike","nature"],    subtitle: "puerto rico" },
       { filename: "IMG_9964.jpeg",   src: "/puerto%20rico/IMG_9964.jpeg",   caption: "went to an oasis, and found natural clay",        tags: ["puertorico","adventure","water"],subtitle: "puerto rico" },
-      { filename: "post_hike_meal.jpg", src: "/puerto%20rico/post_hike_meal.jpg", caption: "post-hike smoothie bowls in Río Grande 🌺 ",                                   tags: ["puertorico","food","riogrande"], subtitle: "puerto rico" },
+      { filename: "smoothie.jpg", src: "/puerto%20rico/smoothie.jpg", caption: "post-hike smoothie bowls in Río Grande 🌺 ",                                   tags: ["puertorico","food","riogrande"], subtitle: "puerto rico" },
       { filename: "IMG_3336.JPG",    src: "/puerto%20rico/IMG_3336.JPG",    caption: "golden hour at El Morro castle ",                             tags: ["puertorico","elmorro","history"],subtitle: "puerto rico" },
       { filename: "IMG_3396.JPG",    src: "/puerto%20rico/IMG_3396.JPG",    caption: "Old San Juan streets at night — the colors here are unreal",                                          tags: ["puertorico","sanjuan","city"],   subtitle: "puerto rico" },
       { filename: "IMG_3486.JPG",    src: "/puerto%20rico/IMG_3486.JPG",    caption: "street murals of Old San Juan by night ",                                        tags: ["puertorico","art","night"],      subtitle: "puerto rico" },
@@ -145,12 +157,26 @@ export const photoDirs: PhotoDir[] = [
 /* ─── Instagram-style lightbox ────────────────────────── */
 
 function Lightbox({ photo, onClose, onBack }: { photo: Photo; onClose: () => void; onBack?: () => void }) {
+  const [liked, setLiked] = useState(false);
+
   useEffect(() => {
     const h = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
     window.addEventListener("keydown", h);
     document.body.style.overflow = "hidden";
     return () => { window.removeEventListener("keydown", h); document.body.style.overflow = ""; };
   }, [onClose]);
+
+  function handleDownload() {
+    const src = photo.video ?? photo.src;
+    if (!src) return;
+    const a = document.createElement("a");
+    a.href = src;
+    a.download = photo.filename;
+    a.target = "_blank";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
 
   return (
     <motion.div
@@ -213,15 +239,29 @@ function Lightbox({ photo, onClose, onBack }: { photo: Photo; onClose: () => voi
 
         {/* Actions row */}
         <div className="px-4 pt-3 pb-1 flex items-center gap-4">
-          <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#16130e]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-          </svg>
+          {/* Heart — toggles red fill */}
+          <button
+            onClick={() => setLiked((v) => !v)}
+            className="transition-transform duration-150 active:scale-90 focus:outline-none"
+            aria-label={liked ? "Unlike" : "Like"}
+          >
+            <svg viewBox="0 0 24 24" className="w-6 h-6 transition-colors duration-200" fill={liked ? "#e2483d" : "none"} stroke={liked ? "#e2483d" : "currentColor"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: liked ? "#e2483d" : "#16130e" }}>
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </button>
           <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#16130e]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
-          <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#16130e] ml-auto" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><polyline points="16 6 12 2 8 6" /><line x1="12" y1="2" x2="12" y2="15" />
-          </svg>
+          {/* Download */}
+          <button
+            onClick={handleDownload}
+            className="ml-auto focus:outline-none transition-opacity duration-150 hover:opacity-60 active:scale-90"
+            aria-label="Download"
+          >
+            <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#16130e]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><polyline points="16 6 12 2 8 6" /><line x1="12" y1="2" x2="12" y2="15" />
+            </svg>
+          </button>
         </div>
 
         {/* Caption */}
