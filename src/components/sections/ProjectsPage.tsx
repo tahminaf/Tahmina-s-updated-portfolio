@@ -13,12 +13,13 @@ const fadeUp = (delay = 0) => ({
 
 const previewImages: Record<string, string> = {
   "01": "/ease.png",
-  "02": "/saath.png",
-  "03": "/amal.png",
-  "04": "/study_sync.png",
-  "05": "/superhero.png",
-  "06": "/century_medical.png",
-  "07": "/century_aesthetics.png",
+  "02": "/deckduel.png",
+  "03": "/saath.png",
+  "04": "/amal.png",
+  "05": "/study_sync.png",
+  "06": "/superhero.png",
+  "07": "/century_medical.png",
+  "08": "/century_aesthetics.png",
 };
 
 const imagePosition: Record<string, string> = {

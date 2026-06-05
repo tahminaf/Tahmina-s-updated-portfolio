@@ -30,7 +30,7 @@ export const skills = [
   { label: "Python", variant: "gold" },
   { label: "Java", variant: "gold" },
   { label: "Node.js", variant: "emerald" },
-  { label: "JWT / OAuth 2.0", variant: "emerald" },
+  { label: "JWT / OAth 2.0", variant: "emerald" },
 ] as const;
 
 /* ─── Experiences ─────────────────────────────────────── */
@@ -62,7 +62,7 @@ export const experiences: Record<ExperienceType, Experience[]> = {
         "Focusing on software engineering, algorithms, and data structures. Active in CS organizations and hackathons.",
       achievements: [
         "Dean's List: Fall 2023, Spring 2024, Fall 2024, Spring 2025",
-        "GPA: 3.8 / 4.0",
+        "GPA: 3.7 / 4.0",
       ],
       skills: [
         "Data Structures",
@@ -183,6 +183,15 @@ export const projects: Project[] = [
   },
   {
     num: "02",
+    cat: "Full-stack · Web + Websockets",
+    title: "DeckDuel",
+    description:
+      "Just a fun little side project to put me out of my comfort zone! This is a quizlet inspired game where players can compete head to head to answer questions through different games. ",
+    tech: ["React", "Vite", "Tailwind CSS", "AWS Lambda", "Node.js", "Websockets", "DynamoDB", "Cognito", "SAM"],
+    link: "https://github.com/tahminaf/Deck-Duel",
+  },
+  {
+    num: "03",
     cat: "Full-stack · Team",
     title: "Saath",
     description:
@@ -190,7 +199,7 @@ export const projects: Project[] = [
     tech: ["React", "PHP", "MySQL", "JWT"],
   },
   {
-    num: "03",
+    num: "04",
     cat: "Client · Web",
     title: "Amal Pilates",
     description:
@@ -199,7 +208,7 @@ export const projects: Project[] = [
     link: "https://github.com/tahminaf/Amal-Pilates-Website",
   },
   {
-    num: "04",
+    num: "05",
     cat: "Full-stack · Productivity",
     title: "StudySync",
     description:
@@ -208,7 +217,7 @@ export const projects: Project[] = [
     link: "https://github.com/tahminaf/StudySync",
   },
   {
-    num: "05",
+    num: "06",
     cat: "Full-stack · Entertainment",
     title: "Super Hero Catalog",
     description:
@@ -216,7 +225,7 @@ export const projects: Project[] = [
     tech: ["React", "TypeScript", "Spring Boot", "Java", "PostgreSQL"],
   },
   {
-    num: "06",
+    num: "07",
     cat: "Client · Web",
     title: "Century Medical Services",
     description:
@@ -225,7 +234,7 @@ export const projects: Project[] = [
     liveLink: "https://www.centurymedicalservices.org/",
   },
   {
-    num: "07",
+    num: "08",
     cat: "Client · Web",
     title: "Century Longevity & Aesthetics",
     description:
