@@ -26,7 +26,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen bg-[#fdfcf8] grid grid-cols-1 lg:grid-cols-[1fr_480px] xl:grid-cols-[1fr_560px] border-b border-[#e2ddd2]"
+      className="min-h-screen bg-[#fdfcf8] grid grid-cols-1 lg:grid-cols-[1fr_320px] xl:grid-cols-[1fr_374px] border-b border-[#e2ddd2]"
     >
       {/* ── LEFT ── */}
       <div className="flex flex-col justify-start px-4 sm:px-8 lg:px-16 pt-6 sm:pt-10 lg:pt-14 pb-10 lg:pb-20 lg:border-r border-[#e2ddd2] min-w-0">

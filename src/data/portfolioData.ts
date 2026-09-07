@@ -76,6 +76,22 @@ export const experiences: Record<ExperienceType, Experience[]> = {
   work: [
     {
       type: "work",
+      org: "PwC — Tax Innovation",
+      role: "Software Engineering Intern",
+      location: "New York, NY",
+      period: "Summer 2026",
+      description:
+        "Extended an enterprise RAG-based AI platform in Python and built agentic AI tooling for tax workflows.",
+      achievements: [
+        "Enabled 500+ users to query 10,000+ tax documents via vector search, cutting research time by 40%.",
+        "Built an LLM observability layer with Langfuse for real-time performance and cost visibility.",
+        "Engineered an MCP server enabling LLMs to authenticate with SharePoint and find canonical files.",
+      ],
+      skills: ["Python", "RAG", "Langfuse", "MCP"],
+      dark: true,
+    },
+    {
+      type: "work",
       org: "M&T Bank",
       role: "Software Engineering Intern",
       location: "Buffalo, NY",
@@ -88,18 +104,6 @@ export const experiences: Record<ExperienceType, Experience[]> = {
         "Contributed to 100% on-time delivery of sprint goals within Agile development team over 10-week internship.",
       ],
       skills: ["Angular", "ASP.NET Core", "T-SQL"],
-      dark: true,
-    },
-    {
-      type: "work",
-      org: "PwC — Tax Innovation",
-      role: "Software Engineering Intern",
-      location: "New York, NY",
-      period: "Summer 2026 (Upcoming)",
-      description:
-        "Incoming software engineering intern on the Tax Innovation team, building internal tools and systems that streamline tax workflows at scale.",
-      achievements: [],
-      skills: [],
       dark: true,
     },
   ],

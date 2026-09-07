@@ -44,6 +44,18 @@ function filler(i: number, label: string, caption: string, tags: string[]): Phot
 
 export const photoDirs: PhotoDir[] = [
   {
+    name: "pwc",
+    label: "pwc",
+    photos: [
+      { filename: "full_group.JPG", src: "/pwc/full_group.JPG", caption: "for one of the enrichment events, I was able to enjoy a night with the interns at Cipriani!", tags: ["pwc","internship","team"], subtitle: "PwC Internship" },
+      { filename: "cointerns.JPG",  src: "/pwc/cointerns.JPG",  caption: "me and the cointerns after hours!",                              tags: ["pwc","internship","team"], subtitle: "PwC Internship" },
+      { filename: "mixer.jpg",      src: "/pwc/mixer.jpg",      caption: "the intern mixer we had on the knicks parade day!",               tags: ["pwc","internship","event"],subtitle: "PwC Internship" },
+      { filename: "promo_day.JPG",  src: "/pwc/promo_day.JPG",  caption: "promo day at pwc! I was able to see OneRepublic live!",           tags: ["pwc","internship","office"],subtitle: "PwC Internship" },
+      { filename: "view.jpg",       src: "/pwc/view.jpg",       caption: "my work view was beautiful!",                                    tags: ["pwc","internship","office"],subtitle: "PwC Internship" },
+      { filename: "FullSizeRender.JPG", src: "/pwc/FullSizeRender.JPG", caption: "Outside of work, I went hiking in the Catskills!",         tags: ["pwc","internship"],        subtitle: "PwC Internship" },
+    ],
+  },
+  {
     name: "college-life",
     label: "college life",
     photos: [
@@ -216,14 +228,14 @@ function Lightbox({ photo, onClose, onBack }: { photo: Photo; onClose: () => voi
         </div>
 
         {/* Photo or Video */}
-        <div className="w-full aspect-square overflow-hidden bg-[#f0ece3]">
+        <div className="w-full max-h-[70vh] overflow-hidden bg-[#f0ece3] flex items-center justify-center">
           {photo.video ? (
             <video
               src={photo.video}
               controls
               playsInline
               autoPlay
-              className="w-full h-full object-cover"
+              className="w-full max-h-[70vh] object-contain"
             />
           ) : (
             <motion.img
@@ -232,7 +244,7 @@ function Lightbox({ photo, onClose, onBack }: { photo: Photo; onClose: () => voi
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               src={photo.src}
               alt={photo.caption}
-              className="w-full h-full object-cover"
+              className="w-full max-h-[70vh] object-contain"
             />
           )}
         </div>
@@ -673,7 +685,7 @@ export function PhotosPage() {
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}
           className="flex flex-wrap gap-x-5 gap-y-1.5 mt-3 px-1"
         >
-          {[["ls","lists all your photo albums"], ["cd malaysia","enters the malaysia album & opens grid"], ["cd ..","goes back to root from any album"], ["open","pops the grid for current album"], ["clear","wipes the terminal"]].map(([cmd, desc]) => (
+          {[["ls","lists all your photo albums"], ["cd pwc","enters the pwc album & opens grid"], ["cd ..","goes back to root from any album"], ["open","pops the grid for current album"], ["clear","wipes the terminal"]].map(([cmd, desc]) => (
             <button
               key={cmd}
               onClick={() => { setInput(cmd); inputRef.current?.focus(); }}

@@ -13,7 +13,7 @@ const fadeUp = (delay = 0) => ({
 const previewImages: Record<string, string> = {
   "University at Buffalo": "/ub.jpeg",
   "M&T Bank": "/m_t.png",
-  "PwC — Tax Innovation": "/pwc.jpg",
+  "PwC — Tax Innovation": "/pwc/pwc_main.jpg",
   "UB Forge": "/forge.png",
   "Codepath": "/codepath.png",
 };

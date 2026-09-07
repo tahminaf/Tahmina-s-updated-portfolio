@@ -18,6 +18,7 @@ export interface BlogPost {
   readTime: string;
   image?: string;
   imageAlt?: string;
+  gallery?: string[];
   href: string; // link to Medium, Substack, dev.to, wherever you publish
 }
 
@@ -52,8 +53,9 @@ export const posts: BlogPost[] = [
     lede: "Translating stack traces into business value is its own skill. Nobody teaches you this in class.",
     date: "Jan 28, 2026",
     readTime: "4 min read",
-    image: "/blog-pwc.png",
-    imageAlt: "PwC office",
+    image: "/pwc/promo_day.JPG",
+    imageAlt: "PwC promo day at the office",
+    gallery: ["/pwc/view.jpg", "/pwc/FullSizeRender.JPG"],
     href: "https://medium.com/@tahmina", // replace with real link
   },
 ];
@@ -131,6 +133,15 @@ function SupportingArticle({ post, index }: { post: BlogPost; index: number }) {
           {post.headline}
         </h3>
         <p className="font-['DM_Mono'] text-[13px] leading-[1.8] text-[#3a342a] mb-5 flex-1">{post.lede}</p>
+        {post.gallery && post.gallery.length > 0 && (
+          <div className="flex gap-2 mb-5">
+            {post.gallery.map((src) => (
+              <div key={src} className="w-1/2 h-20 rounded-lg overflow-hidden border border-[#e2ddd2]">
+                <img src={src} alt={post.imageAlt ?? post.headline} className="w-full h-full object-cover object-center" />
+              </div>
+            ))}
+          </div>
+        )}
         <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#e2ddd2]">
           <div>
             <p className="font-['DM_Mono'] font-semibold text-[11px] text-[#928c82]">{post.date}</p>

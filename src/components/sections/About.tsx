@@ -28,19 +28,19 @@ const posts = [
     objectPosition: "center top",
   },
   {
-    image: "/redbull.png",
-    alt: "Red Bull Basement Workshop",
-    caption: "Red Bull Basement",
-    tag: "Leadership",
-    link: "https://www.linkedin.com/feed/update/urn:li:activity:7435772767930630146/",
-    objectPosition: "center center",
-  },
-  {
     image: "/forge_post.png",
     alt: "Forge First Light Recap — Fall 2025",
     caption: "UB Forge",
     tag: "Community",
     link: "https://www.linkedin.com/feed/update/urn:li:activity:7371541810529177602/",
+    objectPosition: "center top",
+  },
+  {
+    image: "/pwc/full_group.JPG",
+    alt: "PwC Tax Innovation Internship — Team Photo",
+    caption: "PwC Internship",
+    tag: "Internship",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7497808448894636032/",
     objectPosition: "center top",
   },
 ];
@@ -84,7 +84,7 @@ export function About() {
       </div>
 
       {/* ── Grid ── */}
-      <div className="px-5 sm:px-8 md:px-12 lg:px-16 pt-12 sm:pt-16 lg:pt-24 pb-20 sm:pb-28 lg:pb-40 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+      <div className="px-5 sm:px-8 md:px-12 lg:px-16 pt-12 sm:pt-16 lg:pt-24 pb-20 sm:pb-28 lg:pb-40 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
         {posts.map((post, i) => (
           <motion.a
             key={i}
