@@ -187,7 +187,7 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
             <button
               onClick={toggleTheme}
               title={isDark ? "Light mode" : "Dark mode"}
-              className="w-full flex items-center justify-center py-3 text-[#3a7a5e] hover:text-[#88bfa4] transition-colors"
+              className={`w-full flex items-center justify-center py-3 transition-colors ${isDark ? "text-[#88bfa4] hover:text-white" : "text-[#3a7a5e] hover:text-[#88bfa4]"}`}
             >
               {isDark ? <SunIcon className="w-[18px] h-[18px]" /> : <MoonIcon className="w-[18px] h-[18px]" />}
             </button>
@@ -195,7 +195,7 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
             <button
               onClick={onToggle}
               title="Expand sidebar"
-              className="w-full flex items-center justify-center py-3 text-[#3a7a5e] hover:text-[#88bfa4] transition-colors"
+              className={`w-full flex items-center justify-center py-3 transition-colors ${isDark ? "text-[#88bfa4] hover:text-white" : "text-[#3a7a5e] hover:text-[#88bfa4]"}`}
             >
               <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="13 17 18 12 13 7" />
@@ -297,14 +297,14 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
                     open to opportunities
                   </span>
                 </div>
-                <p className="font-['DM_Mono'] font-semibold text-[14px] tracking-[0.06em] text-[#3a7a5e]">
+                <p className={`font-['DM_Mono'] font-semibold text-[14px] tracking-[0.06em] ${isDark ? "text-[#88bfa4]" : "text-[#3a7a5e]"}`}>
                   {personalInfo.location}
                 </p>
 
                 {/* Theme toggle — expanded */}
                 <button
                   onClick={toggleTheme}
-                  className="flex items-center gap-3 text-[#3a7a5e] hover:text-[#88bfa4] transition-colors duration-200 group w-fit"
+                  className={`flex items-center gap-3 transition-colors duration-200 group w-fit ${isDark ? "text-[#88bfa4] hover:text-white" : "text-[#3a7a5e] hover:text-[#88bfa4]"}`}
                 >
                   {isDark ? <SunIcon className="w-[18px] h-[18px]" /> : <MoonIcon className="w-[18px] h-[18px]" />}
                   <span className="font-['DM_Mono'] font-semibold text-[12px] tracking-[0.1em] uppercase">
@@ -315,7 +315,7 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
                 {/* Collapse button — desktop only */}
                 <button
                   onClick={onToggle}
-                  className="hidden lg:flex items-center gap-3 text-[#3a7a5e] hover:text-[#88bfa4] transition-colors duration-200 group w-fit"
+                  className={`hidden lg:flex items-center gap-3 transition-colors duration-200 group w-fit ${isDark ? "text-[#88bfa4] hover:text-white" : "text-[#3a7a5e] hover:text-[#88bfa4]"}`}
                   aria-label="Collapse sidebar"
                 >
                   <div className="flex flex-col gap-[5px]">
