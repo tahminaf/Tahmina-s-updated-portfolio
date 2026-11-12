@@ -12,7 +12,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 const previewImages: Record<string, string> = {
-  "00": "/polaris.JPG",
+  "00": "/IMG_1845.jpeg",
   "01": "/ease.png",
   "02": "/deckduel.png",
   "03": "/saath.png",
@@ -28,6 +28,8 @@ const imagePosition: Record<string, string> = {
   "01": "center center",
   "05": "left bottom",
 };
+
+const imageObjectFit: Record<string, string> = {};
 
 function TechModal({ project, onClose }: { project: Project; onClose: () => void }) {
   return (
@@ -62,6 +64,7 @@ function TechModal({ project, onClose }: { project: Project; onClose: () => void
 function ProjectCard({ project, index, onTechClick }: { project: Project; index: number; onTechClick: () => void }) {
   const img = previewImages[project.num];
   const imgPos = imagePosition[project.num] ?? "left top";
+  const imgFit = imageObjectFit[project.num] ?? "cover";
 
   const linkButtons: { label: string; url: string; primary?: boolean }[] = [];
   if (project.links && project.links.length > 0) {
@@ -115,7 +118,7 @@ function ProjectCard({ project, index, onTechClick }: { project: Project; index:
       <div className="flex flex-col" style={{ minHeight: 280 }}>
         <div className="flex-1 bg-[#edeae4] dark:bg-[#111c16] overflow-hidden relative" style={{ minHeight: 240 }}>
           {img ? (
-            <img src={img} alt={project.title} className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: imgPos }} />
+            <img src={img} alt={project.title} className="absolute inset-0 w-full h-full" style={{ objectFit: imgFit as "cover" | "contain", objectPosition: imgPos }} />
           ) : (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-[#928c82] dark:text-[#aaaaaa]">
               <svg viewBox="0 0 48 48" className="w-10 h-10 opacity-25" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
