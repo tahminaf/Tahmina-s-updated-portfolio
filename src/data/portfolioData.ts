@@ -172,6 +172,20 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    num: "00",
+    cat: "Hackathon · AI/Accessibility",
+    title: "Polaris",
+    description:
+      "A macOS accessibility tool for users with dyslexia — draw 3 circles anywhere on your screen to summon a floating popup that simplifies highlighted text, reads it aloud with word-by-word highlighting, or answers questions about screenshots. Powered by Gemini AI and ElevenLabs, with preferences synced via a Next.js web app.",
+    tech: ["Swift", "Next.js", "React", "TypeScript", "PostgreSQL", "Gemini API", "ElevenLabs", "NextAuth.js", "Tailwind CSS", "Vercel"],
+    winner: "★ 2nd Place Overall — UB Hacking 2026",
+    links: [
+      { label: "View on Devpost", url: "https://devpost.com/software/polaris-b0joci" },
+      { label: "View on GitHub", url: "https://github.com/mafruhamanal/polaris" },
+    ],
+    dark: true,
+  },
+  {
     num: "01",
     cat: "Hackathon · AI/ML",
     title: "EASE",

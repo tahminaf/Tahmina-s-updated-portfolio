@@ -139,6 +139,7 @@ export const photoDirs: PhotoDir[] = [
       { filename: "tok.MOV",   src: "",                   caption: "study with me 📚",                                              tags: ["studytok","study"],   subtitle: "studytok", video: "/studytok/tok.MOV"   },
       { filename: "tokk.MOV",  src: "",                   caption: "productive study session for my intro to AI midterm",                                      tags: ["studytok","night"],   subtitle: "studytok", video: "/studytok/tokk.MOV"  },
       { filename: "tokky.MOV", src: "",                   caption: "spend 24 hours with us for UB Hacking 2025!",                                 tags: ["studytok","morning"], subtitle: "studytok", video: "/studytok/tokky.MOV" },
+      { filename: "ubhacking.mov", src: "", caption: "our last hackathon: UB Hacking 2026!", tags: ["studytok","hackathon","ub"], subtitle: "studytok", video: "/ubhacking.mov" },
     ],
   },
     {

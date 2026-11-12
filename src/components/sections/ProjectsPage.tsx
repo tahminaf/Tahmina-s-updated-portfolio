@@ -12,6 +12,7 @@ const fadeUp = (delay = 0) => ({
 });
 
 const previewImages: Record<string, string> = {
+  "00": "/polaris.JPG",
   "01": "/ease.png",
   "02": "/deckduel.png",
   "03": "/saath.png",
@@ -23,6 +24,7 @@ const previewImages: Record<string, string> = {
 };
 
 const imagePosition: Record<string, string> = {
+  "00": "52% center",
   "01": "center center",
   "05": "left bottom",
 };
