@@ -315,7 +315,7 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
                 {/* Collapse button — desktop only */}
                 <button
                   onClick={onToggle}
-                  className={`hidden lg:flex items-center gap-3 transition-colors duration-200 group w-fit ${isDark ? "text-[#88bfa4] hover:text-white" : "text-[#3a7a5e] hover:text-[#88bfa4]"}`}
+                  className={`flex items-center gap-3 transition-colors duration-200 group w-fit ${isDark ? "text-[#88bfa4] hover:text-white" : "text-[#3a7a5e] hover:text-[#88bfa4]"}`}
                   aria-label="Collapse sidebar"
                 >
                   <div className="flex flex-col gap-[5px]">
