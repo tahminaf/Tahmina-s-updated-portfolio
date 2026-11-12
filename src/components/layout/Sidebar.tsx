@@ -217,7 +217,7 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
               key="expanded"
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               transition={{ duration: 0.2, delay: 0.05 }}
-              className="relative z-20 flex flex-col justify-between h-full px-10 py-12"
+              className="relative z-20 flex flex-col justify-between h-full px-10 pt-10 pb-6"
             >
               <div>
                 {/* Name */}
@@ -286,7 +286,7 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
               </div>
 
               {/* Status + collapse */}
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3">
                 <div className="flex items-center gap-3 bg-white/[0.07] border border-white/[0.12] rounded-full px-5 py-3 w-fit">
                   <motion.span
                     className="w-[9px] h-[9px] rounded-full bg-[#4dba87] block flex-shrink-0"
