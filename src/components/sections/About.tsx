@@ -12,12 +12,12 @@ const fadeUp = (delay = 0) => ({
 
 const posts = [
   {
-    image: "/hackathon.png",
-    alt: "UB Hacking 2025 — AI/ML Track Winners",
-    caption: "UB Hacking 2025",
+    image: "/ubhacking.jpeg",
+    alt: "UB Hacking 2026 — 2nd Place Overall",
+    caption: "UB Hacking 2026",
     tag: "Hackathon",
-    link: "https://www.linkedin.com/feed/update/urn:li:activity:7394362592745500672/",
-    objectPosition: "center top",
+    link: "https://www.linkedin.com/feed/update/urn:li:activity:7526440521339285504/",
+    objectPosition: "center 65%",
   },
   {
     image: "/internship.png",
@@ -53,22 +53,22 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
 
 export function About() {
   return (
-    <section id="about" className="border-t border-[#e2ddd2] bg-[#fdfcf8]">
+    <section id="about" className="border-t border-[#e2ddd2] dark:border-[#243828] bg-[#fdfcf8] dark:bg-[#0d1f18] transition-colors duration-300">
 
       {/* ── Header ── */}
-      <div className="px-5 sm:px-8 md:px-12 lg:px-16 pt-20 sm:pt-28 lg:pt-40 pb-16 sm:pb-24 lg:pb-32 border-b border-[#e2ddd2] flex flex-col items-center text-center">
+      <div className="px-5 sm:px-8 md:px-12 lg:px-16 pt-20 sm:pt-28 lg:pt-40 pb-16 sm:pb-24 lg:pb-32 border-b border-[#e2ddd2] dark:border-[#243828] flex flex-col items-center text-center">
         <motion.p
           {...fadeUp(0)}
-          className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.16em] sm:tracking-[0.18em] uppercase text-[#8a6800] mb-4 sm:mb-5"
+          className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.16em] sm:tracking-[0.18em] uppercase text-[#8a6800] dark:text-[#c8a040] mb-4 sm:mb-5"
         >
           follow along
         </motion.p>
         <motion.h2
           {...fadeUp(0.05)}
-          className="font-['Cormorant_Garamond'] font-light text-[#16130e] leading-[1.0] tracking-[-0.02em] mb-5 sm:mb-6"
+          className="font-['Cormorant_Garamond'] font-light text-[#16130e] dark:text-white leading-[1.0] tracking-[-0.02em] mb-5 sm:mb-6"
           style={{ fontSize: "clamp(40px, 6vw, 68px)" }}
         >
-          Life in <em className="text-[#0b3d2e] not-italic italic">Motion</em>
+          Life in <em className="text-[#0b3d2e] dark:text-[#7fbfa0] not-italic italic">Motion</em>
         </motion.h2>
 
         <motion.a
@@ -76,7 +76,7 @@ export function About() {
           href={personalInfo.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 sm:gap-3 font-['DM_Mono'] font-semibold text-[20px] sm:text-[24px] md:text-[28px] tracking-[0.06em] text-[#0b3d2e] hover:text-[#145c42] transition-colors duration-200"
+          className="flex items-center gap-2 sm:gap-3 font-['DM_Mono'] font-semibold text-[20px] sm:text-[24px] md:text-[28px] tracking-[0.06em] text-[#0b3d2e] dark:text-[#7fbfa0] hover:text-[#145c42] dark:hover:text-[#a0dfbf] transition-colors duration-200"
         >
           <LinkedInIcon className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" />
           @tahmina-fayezi
@@ -95,7 +95,7 @@ export function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
-            className="relative aspect-square overflow-hidden group rounded-lg sm:rounded-xl border-2 border-[#e2ddd2]"
+            className="relative aspect-square overflow-hidden group rounded-lg sm:rounded-xl border-2 border-[#e2ddd2] dark:border-[#243828] hover:border-[#7fbfa0] dark:hover:border-[#2d6648] transition-colors duration-300"
           >
             <img
               src={post.image}

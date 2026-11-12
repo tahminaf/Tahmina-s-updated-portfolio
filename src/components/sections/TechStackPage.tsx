@@ -56,31 +56,31 @@ const groups = [
 
 export function TechStackPage() {
   return (
-    <section id="tech" className="min-h-screen bg-[#fdfcf8]">
+    <section id="tech" className="min-h-screen bg-[#fdfcf8] dark:bg-[#0d1f18] transition-colors duration-300">
 
       {/* Page header — consistent with Experience/Projects */}
-      <div className="px-5 sm:px-8 md:px-12 lg:px-16 pt-10 sm:pt-14 pb-10 sm:pb-14 border-b-2 border-[#e2ddd2]">
+      <div className="px-5 sm:px-8 md:px-12 lg:px-16 pt-10 sm:pt-14 pb-10 sm:pb-14 border-b-2 border-[#e2ddd2] dark:border-[#243828]">
         <motion.p
           initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
-          className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.16em] uppercase text-[#8a6800] mb-4 sm:mb-5"
+          className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.16em] uppercase text-[#8a6800] dark:text-[#c8a040] mb-4 sm:mb-5"
         >
           my toolkit
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.08 }}
-          className="font-['Cormorant_Garamond'] font-light text-[#16130e] leading-[0.95] tracking-[-0.02em] mb-5 sm:mb-6"
+          className="font-['Cormorant_Garamond'] font-light text-[#16130e] dark:text-white leading-[0.95] tracking-[-0.02em] mb-5 sm:mb-6"
           style={{ fontSize: "clamp(44px, 8vw, 96px)" }}
         >
           Technologies &amp;<br />
-          <em className="text-[#0b3d2e]">Frameworks</em>
+          <em className="text-[#0b3d2e] dark:text-[#7fbfa0]">Frameworks</em>
         </motion.h1>
         <motion.span
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.14 }}
-          className="block w-10 h-[2px] bg-[#a07c20] mb-5 sm:mb-6"
+          className="block w-10 h-[2px] bg-[#a07c20] dark:bg-[#8a6820] mb-5 sm:mb-6"
         />
         <motion.p
           initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.18 }}
-          className="font-['DM_Mono'] text-[13px] sm:text-[15px] leading-[1.9] text-[#3a342a] max-w-[600px]"
+          className="font-['DM_Mono'] text-[13px] sm:text-[15px] leading-[1.9] text-[#3a342a] dark:text-[#e8e8e8] max-w-[600px]"
         >
           The languages, frameworks, and tools I reach for when building.
         </motion.p>
@@ -90,7 +90,7 @@ export function TechStackPage() {
       <div className="px-5 sm:px-8 md:px-12 lg:px-16 py-10 sm:py-16 space-y-10 sm:space-y-12">
         {groups.map((group, gi) => (
           <motion.div key={group.label} {...fadeUp(0.1 + gi * 0.08)}>
-            <p className="font-['DM_Mono'] font-bold text-[12px] sm:text-[13px] tracking-[0.16em] uppercase text-[#3a342a] mb-4 sm:mb-5 pb-3 border-b-2 border-[#e2ddd2]">
+            <p className="font-['DM_Mono'] font-bold text-[12px] sm:text-[13px] tracking-[0.16em] uppercase text-[#3a342a] dark:text-[#e8e8e8] mb-4 sm:mb-5 pb-3 border-b-2 border-[#e2ddd2] dark:border-[#243828]">
               {group.label}
             </p>
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-2 sm:gap-3">
@@ -98,16 +98,16 @@ export function TechStackPage() {
                 <motion.div
                   key={name}
                   {...fadeUp(0.12 + gi * 0.08 + i * 0.03)}
-                  className="flex flex-col items-center gap-2 sm:gap-3 px-2 sm:px-3 py-4 sm:py-6 rounded-xl sm:rounded-2xl border-2 border-[#e2ddd2] bg-[#fdfcf8] hover:border-[#7fbfa0] hover:bg-[#edf5f0] transition-all duration-200 cursor-default group"
+                  className="flex flex-col items-center gap-2 sm:gap-3 px-2 sm:px-3 py-4 sm:py-6 rounded-xl sm:rounded-2xl border-2 border-[#e2ddd2] dark:border-[#243828] bg-[#fdfcf8] dark:bg-[#162419] hover:border-[#7fbfa0] dark:hover:border-[#2d6648] hover:bg-[#edf5f0] dark:hover:bg-[#1a3d2a] transition-all duration-200 cursor-default group"
                 >
                   <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
                     {icons[name] ?? (
-                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#0b3d2e] flex items-center justify-center">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#0b3d2e] dark:bg-[#1a3d2a] flex items-center justify-center">
                         <span className="font-['DM_Mono'] font-bold text-[10px] sm:text-[11px] text-white text-center leading-tight px-1">{name}</span>
                       </div>
                     )}
                   </div>
-                  <span className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.04em] text-[#6b6358] group-hover:text-[#0b3d2e] transition-colors text-center leading-tight">
+                  <span className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.04em] text-[#6b6358] dark:text-[#cccccc] group-hover:text-[#0b3d2e] dark:group-hover:text-[#7fbfa0] transition-colors text-center leading-tight">
                     {name}
                   </span>
                 </motion.div>

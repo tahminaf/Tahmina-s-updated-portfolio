@@ -20,6 +20,7 @@
   body {
     background: #fdfcf8;
     color: #16130e;
+    transition: background-color 0.3s ease, color 0.3s ease;
     font-family: "DM Mono", monospace;
     font-weight: 300;
     font-size: 16px;
@@ -32,6 +33,21 @@
     /* Prevent text size inflation on mobile */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+  }
+
+  /* Dark mode body */
+  html.dark body {
+    background: #0d1f18;
+    color: #ffffff;
+  }
+
+  html.dark ::-webkit-scrollbar-track {
+    background: #111c16;
+  }
+
+  html.dark ::selection {
+    background: #1a3d2a;
+    color: #7fbfa0;
   }
 
   /* Scrollbar */

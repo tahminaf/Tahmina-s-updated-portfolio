@@ -205,30 +205,30 @@ function Lightbox({ photo, onClose, onBack }: { photo: Photo; onClose: () => voi
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.93, y: 20 }}
         transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full max-w-sm sm:max-w-md bg-[#fdfcf8] rounded-2xl overflow-hidden border-2 border-[#e2ddd2]"
+        className="relative z-10 w-full max-w-sm sm:max-w-md bg-[#fdfcf8] dark:bg-[#162419] rounded-2xl overflow-hidden border-2 border-[#e2ddd2] dark:border-[#243828]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header — like Instagram */}
-        <div className="flex items-center gap-3 px-4 py-3 border-b border-[#e2ddd2]">
+        <div className="flex items-center gap-3 px-4 py-3 border-b border-[#e2ddd2] dark:border-[#243828]">
           <button
             onClick={() => onBack ? onBack() : onClose()}
-            className="flex items-center gap-1 font-['DM_Mono'] text-[12px] text-[#928c82] hover:text-[#0b3d2e] transition-colors duration-150 flex-shrink-0"
+            className="flex items-center gap-1 font-['DM_Mono'] text-[12px] text-[#928c82] dark:text-[#cccccc] hover:text-[#0b3d2e] dark:hover:text-[#7fbfa0] transition-colors duration-150 flex-shrink-0"
           >
             <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
             back
           </button>
-          <div className="w-8 h-8 rounded-full bg-[#0b3d2e] flex items-center justify-center flex-shrink-0">
+          <div className="w-8 h-8 rounded-full bg-[#0b3d2e] dark:bg-[#1a3d2a] flex items-center justify-center flex-shrink-0">
             <span className="font-['DM_Mono'] font-bold text-[11px] text-white">TF</span>
           </div>
           <div className="min-w-0">
-            <p className="font-['DM_Mono'] font-semibold text-[12px] text-[#16130e]">tahmina.fayezi</p>
-            <p className="font-['DM_Mono'] text-[10px] text-[#928c82] truncate">{photo.subtitle ?? photo.tags[0]}</p>
+            <p className="font-['DM_Mono'] font-semibold text-[12px] text-[#16130e] dark:text-white">tahmina.fayezi</p>
+            <p className="font-['DM_Mono'] text-[10px] text-[#928c82] dark:text-[#cccccc] truncate">{photo.subtitle ?? photo.tags[0]}</p>
           </div>
-          <button onClick={onClose} className="ml-auto w-7 h-7 flex items-center justify-center rounded-full hover:bg-[#f0ece3] text-[#928c82] hover:text-[#16130e] transition-colors text-sm flex-shrink-0">✕</button>
+          <button onClick={onClose} className="ml-auto w-7 h-7 flex items-center justify-center rounded-full hover:bg-[#f0ece3] dark:hover:bg-[#243828] text-[#928c82] dark:text-[#cccccc] hover:text-[#16130e] dark:hover:text-[#e8e0d0] transition-colors text-sm flex-shrink-0">✕</button>
         </div>
 
         {/* Photo or Video */}
-        <div className="w-full max-h-[70vh] overflow-hidden bg-[#f0ece3] flex items-center justify-center">
+        <div className="w-full max-h-[70vh] overflow-hidden bg-[#f0ece3] dark:bg-[#111c16] flex items-center justify-center">
           {photo.video ? (
             <video
               src={photo.video}
@@ -250,7 +250,7 @@ function Lightbox({ photo, onClose, onBack }: { photo: Photo; onClose: () => voi
         </div>
 
         {/* Actions row */}
-        <div className="px-4 pt-3 pb-1 flex items-center gap-4">
+        <div className="px-4 pt-3 pb-1 flex items-center gap-4 bg-[#fdfcf8] dark:bg-[#162419]">
           {/* Heart — toggles red fill */}
           <button
             onClick={() => setLiked((v) => !v)}
@@ -261,7 +261,7 @@ function Lightbox({ photo, onClose, onBack }: { photo: Photo; onClose: () => voi
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
             </svg>
           </button>
-          <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#16130e]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#16130e] dark:text-white" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
           {/* Download */}
@@ -270,20 +270,20 @@ function Lightbox({ photo, onClose, onBack }: { photo: Photo; onClose: () => voi
             className="ml-auto focus:outline-none transition-opacity duration-150 hover:opacity-60 active:scale-90"
             aria-label="Download"
           >
-            <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#16130e]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <svg viewBox="0 0 24 24" className="w-6 h-6 text-[#16130e] dark:text-white" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><polyline points="16 6 12 2 8 6" /><line x1="12" y1="2" x2="12" y2="15" />
             </svg>
           </button>
         </div>
 
         {/* Caption */}
-        <div className="px-4 pb-4">
-          <p className="font-['DM_Mono'] text-[13px] text-[#16130e] leading-relaxed">
+        <div className="px-4 pb-4 bg-[#fdfcf8] dark:bg-[#162419]">
+          <p className="font-['DM_Mono'] text-[13px] text-[#16130e] dark:text-white leading-relaxed">
             <span className="font-semibold">tahmina.fayezi </span>{photo.caption}
           </p>
           <div className="flex gap-1.5 flex-wrap mt-2">
             {photo.tags.map((t) => (
-              <span key={t} className="font-['DM_Mono'] text-[11px] text-[#0b3d2e]">#{t}</span>
+              <span key={t} className="font-['DM_Mono'] text-[11px] text-[#0b3d2e] dark:text-[#7fbfa0]">#{t}</span>
             ))}
           </div>
         </div>
@@ -317,32 +317,32 @@ function GridModal({ dir, onClose, onPhoto }: { dir: PhotoDir; onClose: () => vo
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 40 }}
         transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
-        className="relative z-10 w-full sm:max-w-lg bg-[#fdfcf8] rounded-t-3xl sm:rounded-2xl overflow-hidden border-t-2 sm:border-2 border-[#e2ddd2]"
+        className="relative z-10 w-full sm:max-w-lg bg-[#fdfcf8] dark:bg-[#162419] rounded-t-3xl sm:rounded-2xl overflow-hidden border-t-2 sm:border-2 border-[#e2ddd2] dark:border-[#243828]"
         style={{ maxHeight: "85vh" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Pull bar (mobile) */}
         <div className="flex justify-center pt-3 sm:hidden">
-          <div className="w-10 h-1 rounded-full bg-[#e2ddd2]" />
+          <div className="w-10 h-1 rounded-full bg-[#e2ddd2] dark:bg-[#243828]" />
         </div>
 
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-[#e2ddd2]">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-[#e2ddd2] dark:border-[#243828]">
           <div className="flex items-center gap-3">
             <button
               onClick={onClose}
-              className="flex items-center gap-1.5 font-['DM_Mono'] text-[12px] text-[#928c82] hover:text-[#0b3d2e] transition-colors duration-150"
+              className="flex items-center gap-1.5 font-['DM_Mono'] text-[12px] text-[#928c82] dark:text-[#cccccc] hover:text-[#0b3d2e] dark:hover:text-[#7fbfa0] transition-colors duration-150"
             >
               <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
               back
             </button>
-            <span className="text-[#e2ddd2]">|</span>
+            <span className="text-[#e2ddd2] dark:text-[#243828]">|</span>
             <div>
-              <p className="font-['Cormorant_Garamond'] font-light text-[22px] text-[#16130e] leading-none">{dir.label}</p>
-              <p className="font-['DM_Mono'] text-[11px] text-[#928c82] mt-0.5">{dir.photos.length} photos · tap to open</p>
+              <p className="font-['Cormorant_Garamond'] font-light text-[22px] text-[#16130e] dark:text-white leading-none">{dir.label}</p>
+              <p className="font-['DM_Mono'] text-[11px] text-[#928c82] dark:text-[#cccccc] mt-0.5">{dir.photos.length} photos · tap to open</p>
             </div>
           </div>
-          <button onClick={onClose} className="w-8 h-8 rounded-full bg-[#f0ece3] border border-[#e2ddd2] flex items-center justify-center text-[#928c82] hover:text-[#16130e] hover:bg-[#e8e4dc] transition-colors text-sm">✕</button>
+          <button onClick={onClose} className="w-8 h-8 rounded-full bg-[#f0ece3] dark:bg-[#1a3d2a] border border-[#e2ddd2] dark:border-[#243828] flex items-center justify-center text-[#928c82] dark:text-[#cccccc] hover:text-[#16130e] dark:hover:text-[#e8e0d0] hover:bg-[#e8e4dc] dark:hover:bg-[#243828] transition-colors text-sm">✕</button>
         </div>
 
         {/* Grid */}
@@ -355,7 +355,7 @@ function GridModal({ dir, onClose, onPhoto }: { dir: PhotoDir; onClose: () => vo
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.25, delay: i * 0.04 }}
                 onClick={() => { onPhoto(photo); }}
-                className="group relative aspect-square overflow-hidden bg-[#f0ece3] focus:outline-none"
+                className="group relative aspect-square overflow-hidden bg-[#f0ece3] dark:bg-[#111c16] focus:outline-none"
               >
                 {photo.video ? (
                   <video
@@ -567,32 +567,32 @@ export function PhotosPage() {
   }
 
   return (
-    <section id="photos" className="min-h-screen bg-[#fdfcf8]">
+    <section id="photos" className="min-h-screen bg-[#fdfcf8] dark:bg-[#0d1f18] transition-colors duration-300">
 
       {/* ── Page header ── */}
-      <div className="px-5 sm:px-8 md:px-12 lg:px-16 pt-10 sm:pt-14 pb-10 sm:pb-14 border-b-2 border-[#e2ddd2]">
+      <div className="px-5 sm:px-8 md:px-12 lg:px-16 pt-10 sm:pt-14 pb-10 sm:pb-14 border-b-2 border-[#e2ddd2] dark:border-[#243828]">
         <motion.p
           initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
-          className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.16em] uppercase text-[#8a6800] mb-4 sm:mb-5"
+          className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.16em] uppercase text-[#8a6800] dark:text-[#c8a040] mb-4 sm:mb-5"
         >
           photo archive
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.08 }}
-          className="font-['Cormorant_Garamond'] font-light text-[#16130e] leading-[0.95] tracking-[-0.02em] mb-5 sm:mb-6"
+          className="font-['Cormorant_Garamond'] font-light text-[#16130e] dark:text-white leading-[0.95] tracking-[-0.02em] mb-5 sm:mb-6"
           style={{ fontSize: "clamp(44px, 8vw, 96px)" }}
         >
-          My <em className="text-[#0b3d2e]">Photos</em>
+          My <em className="text-[#0b3d2e] dark:text-[#7fbfa0]">Photos</em>
         </motion.h1>
         <motion.span
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.14 }}
-          className="block w-10 h-[2px] bg-[#a07c20] mb-5 sm:mb-6"
+          className="block w-10 h-[2px] bg-[#a07c20] dark:bg-[#8a6820] mb-5 sm:mb-6"
         />
         <motion.p
           initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.18 }}
-          className="font-['DM_Mono'] text-[13px] sm:text-[15px] leading-[1.9] text-[#3a342a] max-w-[560px]"
+          className="font-['DM_Mono'] text-[13px] sm:text-[15px] leading-[1.9] text-[#3a342a] dark:text-[#e8e8e8] max-w-[560px]"
         >
-          Browse my photo albums through a terminal. Start with <span className="text-[#0b3d2e] font-semibold">ls</span> to see all albums, then <span className="text-[#0b3d2e] font-semibold">cd &lt;album&gt;</span> to dive in.
+          Browse my photo albums through a terminal. Start with <span className="text-[#0b3d2e] dark:text-[#7fbfa0] font-semibold">ls</span> to see all albums, then <span className="text-[#0b3d2e] dark:text-[#7fbfa0] font-semibold">cd &lt;album&gt;</span> to dive in.
         </motion.p>
       </div>
 
@@ -606,7 +606,7 @@ export function PhotosPage() {
             <button
               key={dir.name}
               onClick={() => { openGrid(dir); }}
-              className="font-['DM_Mono'] text-[11px] sm:text-[12px] font-semibold tracking-[0.06em] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border-2 border-[#e2ddd2] bg-[#f7f4ed] text-[#3a342a] hover:border-[#7fbfa0] hover:bg-[#edf5f0] hover:text-[#0b3d2e] transition-all duration-200"
+              className="font-['DM_Mono'] text-[11px] sm:text-[12px] font-semibold tracking-[0.06em] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border-2 border-[#e2ddd2] dark:border-[#243828] bg-[#f7f4ed] dark:bg-[#162419] text-[#3a342a] dark:text-[#e8e8e8] hover:border-[#7fbfa0] dark:hover:border-[#2d6648] hover:bg-[#edf5f0] dark:hover:bg-[#1a3d2a] hover:text-[#0b3d2e] dark:hover:text-[#7fbfa0] transition-all duration-200"
             >
               {dir.label}
             </button>
@@ -620,15 +620,15 @@ export function PhotosPage() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="border-2 border-[#e2ddd2] rounded-2xl overflow-hidden bg-[#fdfcf8]"
+          className="border-2 border-[#e2ddd2] dark:border-[#243828] rounded-2xl overflow-hidden bg-[#fdfcf8] dark:bg-[#111c16]"
           onClick={() => inputRef.current?.focus()}
         >
           {/* Title bar */}
-          <div className="bg-[#f0ece3] px-4 sm:px-5 py-3 border-b-2 border-[#e2ddd2] flex items-center gap-2.5">
+          <div className="bg-[#f0ece3] dark:bg-[#162419] px-4 sm:px-5 py-3 border-b-2 border-[#e2ddd2] dark:border-[#243828] flex items-center gap-2.5">
             <span className="w-3 h-3 rounded-full bg-[#e2736a] flex-shrink-0" />
             <span className="w-3 h-3 rounded-full bg-[#d4a843] flex-shrink-0" />
             <span className="w-3 h-3 rounded-full bg-[#5aab6e] flex-shrink-0" />
-            <span className="font-['DM_Mono'] text-[11px] sm:text-[12px] text-[#928c82] ml-1 tracking-[0.04em] truncate">
+            <span className="font-['DM_Mono'] text-[11px] sm:text-[12px] text-[#928c82] dark:text-[#cccccc] ml-1 tracking-[0.04em] truncate">
               tahmina@portfolio &nbsp;{cwdLabel()}
             </span>
           </div>
@@ -643,32 +643,32 @@ export function PhotosPage() {
               if (line.type === "prompt") {
                 return (
                   <div key={i} className="flex flex-wrap items-baseline gap-x-1.5 mb-1 font-['DM_Mono'] text-[11px] sm:text-[12px]">
-                    <span className="text-[#0b3d2e] font-semibold">tahmina</span>
-                    <span className="text-[#928c82]">@portfolio</span>
-                    <span className="text-[#8a6800] font-semibold">{line.promptPath}</span>
-                    <span className="text-[#928c82]">%</span>
-                    <span className="text-[#2a231a]">{line.content}</span>
+                    <span className="text-[#0b3d2e] dark:text-[#7fbfa0] font-semibold">tahmina</span>
+                    <span className="text-[#928c82] dark:text-[#cccccc]">@portfolio</span>
+                    <span className="text-[#8a6800] dark:text-[#c8a040] font-semibold">{line.promptPath}</span>
+                    <span className="text-[#928c82] dark:text-[#cccccc]">%</span>
+                    <span className="text-[#2a231a] dark:text-[#e8e8e8]">{line.content}</span>
                   </div>
                 );
               }
               if (line.type === "error") {
-                return <div key={i} className="font-['DM_Mono'] text-[11px] sm:text-[12px] text-[#b03000] mb-1" dangerouslySetInnerHTML={{ __html: line.content ?? "" }} />;
+                return <div key={i} className="font-['DM_Mono'] text-[11px] sm:text-[12px] text-[#b03000] dark:text-[#e06040] mb-1" dangerouslySetInnerHTML={{ __html: line.content ?? "" }} />;
               }
-              return <div key={i} className="font-['DM_Mono'] text-[11px] sm:text-[12px] text-[#2a231a] mb-1 leading-relaxed" dangerouslySetInnerHTML={{ __html: line.content ?? "" }} />;
+              return <div key={i} className="font-['DM_Mono'] text-[11px] sm:text-[12px] text-[#2a231a] dark:text-[#e8e8e8] mb-1 leading-relaxed" dangerouslySetInnerHTML={{ __html: line.content ?? "" }} />;
             })}
 
             {/* Active prompt row */}
             <div className="flex flex-wrap items-baseline gap-x-1.5 mt-1 font-['DM_Mono'] text-[11px] sm:text-[12px]">
-              <span className="text-[#0b3d2e] font-semibold">tahmina</span>
-              <span className="text-[#928c82]">@portfolio</span>
-              <span className="text-[#8a6800] font-semibold">{cwdLabel()}</span>
-              <span className="text-[#928c82]">%</span>
+              <span className="text-[#0b3d2e] dark:text-[#7fbfa0] font-semibold">tahmina</span>
+              <span className="text-[#928c82] dark:text-[#cccccc]">@portfolio</span>
+              <span className="text-[#8a6800] dark:text-[#c8a040] font-semibold">{cwdLabel()}</span>
+              <span className="text-[#928c82] dark:text-[#cccccc]">%</span>
               <input
                 ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKey}
-                className="bg-transparent border-none outline-none font-['DM_Mono'] text-[11px] sm:text-[12px] text-[#2a231a] flex-1 min-w-[100px] caret-[#0b3d2e]"
+                className="bg-transparent border-none outline-none font-['DM_Mono'] text-[11px] sm:text-[12px] text-[#2a231a] dark:text-[#e8e8e8] flex-1 min-w-[100px] caret-[#0b3d2e] dark:caret-[#7fbfa0]"
                 autoComplete="off"
                 autoCorrect="off"
                 autoCapitalize="off"
@@ -689,10 +689,10 @@ export function PhotosPage() {
             <button
               key={cmd}
               onClick={() => { setInput(cmd); inputRef.current?.focus(); }}
-              className="font-['DM_Mono'] text-[11px] text-[#928c82] hover:text-[#0b3d2e] transition-colors duration-150"
+              className="font-['DM_Mono'] text-[11px] text-[#928c82] dark:text-[#cccccc] hover:text-[#0b3d2e] dark:hover:text-[#7fbfa0] transition-colors duration-150"
             >
-              <span className="text-[#8a6800] font-semibold">{cmd}</span>
-              <span className="text-[#b0a898]"> — {desc}</span>
+              <span className="text-[#8a6800] dark:text-[#c8a040] font-semibold">{cmd}</span>
+              <span className="text-[#b0a898] dark:text-[#aaaaaa]"> — {desc}</span>
             </button>
           ))}
         </motion.div>

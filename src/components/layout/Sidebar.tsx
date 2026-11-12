@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate, useLocation } from "react-router-dom";
 import { personalInfo, navItems } from "../../data/portfolioData";
 import { useActiveSection } from "../../hooks/useActiveSection";
+import { useTheme } from "../../context/ThemeContext";
 
 interface Props {
   collapsed?: boolean;
@@ -51,11 +52,6 @@ const NavIcon = ({ id, className }: { id: string; className?: string }) => {
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
     </svg>
   );
-  if (id === "tech") return (
-    <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" />
-    </svg>
-  );
   if (id === "archive") return (
     <svg className={cls} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
       <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
@@ -65,17 +61,39 @@ const NavIcon = ({ id, className }: { id: string; className?: string }) => {
   return null;
 };
 
+const SunIcon = ({ className }: { className?: string }) => (
+  <svg className={className ?? "w-5 h-5"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="5" />
+    <line x1="12" y1="1" x2="12" y2="3" />
+    <line x1="12" y1="21" x2="12" y2="23" />
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+    <line x1="1" y1="12" x2="3" y2="12" />
+    <line x1="21" y1="12" x2="23" y2="12" />
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+  </svg>
+);
+
+const MoonIcon = ({ className }: { className?: string }) => (
+  <svg className={className ?? "w-5 h-5"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+  </svg>
+);
+
 export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props) {
   const active = useActiveSection(navItems.map((n) => n.id));
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { theme, toggle: toggleTheme } = useTheme();
+  const isDark = theme === "dark";
 
   const isExperiencePage = location.pathname === "/experience";
   const isProjectsPage = location.pathname === "/projects";
   const isTechPage = location.pathname === "/toolkit";
   const isPhotosPage = location.pathname === "/photos";
-  
+
   const isOnSubPage = isExperiencePage || isProjectsPage || isTechPage || isPhotosPage;
 
   function handleNavClick(id: string) {
@@ -104,9 +122,11 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
     if (id === "projects") return isProjectsPage;
     if (id === "tech") return isTechPage;
     if (id === "archive") return isPhotosPage;
-    
+
     return !isOnSubPage && active === id;
   }
+
+  const sidebarBg = isDark ? "#111c16" : "#0b3d2e";
 
   return (
     <>
@@ -114,7 +134,8 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
           DESKTOP SIDEBAR  (≥ lg)
       ════════════════════════════════ */}
       <motion.aside
-        className="hidden lg:flex fixed left-0 top-0 h-screen flex-col justify-between z-50 bg-[#0b3d2e] overflow-hidden"
+        className="hidden lg:flex fixed left-0 top-0 h-screen flex-col justify-between z-50 overflow-hidden transition-colors duration-300"
+        style={{ backgroundColor: sidebarBg }}
         animate={{ width: collapsed ? 56 : 360 }}
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
       >
@@ -130,7 +151,7 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
           )}
         </AnimatePresence>
 
-        {/* ── COLLAPSED: icon-only nav — always rendered, shown via opacity ── */}
+        {/* ── COLLAPSED: icon-only nav ── */}
         <motion.div
           animate={{ opacity: collapsed ? 1 : 0 }}
           transition={{ duration: 0.15 }}
@@ -162,6 +183,14 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
             })}
           </div>
           <div className="flex flex-col items-center gap-3 mb-3">
+            {/* Theme toggle — collapsed */}
+            <button
+              onClick={toggleTheme}
+              title={isDark ? "Light mode" : "Dark mode"}
+              className="w-full flex items-center justify-center py-3 text-[#3a7a5e] hover:text-[#88bfa4] transition-colors"
+            >
+              {isDark ? <SunIcon className="w-[18px] h-[18px]" /> : <MoonIcon className="w-[18px] h-[18px]" />}
+            </button>
             {/* Expand button */}
             <button
               onClick={onToggle}
@@ -271,10 +300,22 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
                 <p className="font-['DM_Mono'] font-semibold text-[14px] tracking-[0.06em] text-[#3a7a5e]">
                   {personalInfo.location}
                 </p>
+
+                {/* Theme toggle — expanded */}
+                <button
+                  onClick={toggleTheme}
+                  className="flex items-center gap-3 text-[#3a7a5e] hover:text-[#88bfa4] transition-colors duration-200 group w-fit"
+                >
+                  {isDark ? <SunIcon className="w-[18px] h-[18px]" /> : <MoonIcon className="w-[18px] h-[18px]" />}
+                  <span className="font-['DM_Mono'] font-semibold text-[12px] tracking-[0.1em] uppercase">
+                    {isDark ? "light mode" : "dark mode"}
+                  </span>
+                </button>
+
                 {/* Collapse button — desktop only */}
                 <button
                   onClick={onToggle}
-                  className="hidden lg:flex items-center gap-3 mt-2 text-[#3a7a5e] hover:text-[#88bfa4] transition-colors duration-200 group w-fit"
+                  className="hidden lg:flex items-center gap-3 text-[#3a7a5e] hover:text-[#88bfa4] transition-colors duration-200 group w-fit"
                   aria-label="Collapse sidebar"
                 >
                   <div className="flex flex-col gap-[5px]">
@@ -295,7 +336,10 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
       {/* ════════════════════════════════
           MOBILE strip + slide-out
       ════════════════════════════════ */}
-      <div className="lg:hidden fixed left-0 top-0 h-screen w-14 z-50 bg-[#0b3d2e] border-r border-white/[0.1] flex flex-col items-center justify-between py-7">
+      <div
+        className="lg:hidden fixed left-0 top-0 h-screen w-14 z-50 border-r border-white/[0.1] flex flex-col items-center justify-between py-7 transition-colors duration-300"
+        style={{ backgroundColor: sidebarBg }}
+      >
         <button onClick={() => setMobileOpen((v) => !v)} className="flex flex-col gap-[5px] p-2" aria-label="open menu">
           <motion.span className="block w-5 h-[2px] bg-white origin-center" animate={mobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }} transition={{ duration: 0.25 }} />
           <motion.span className="block w-5 h-[2px] bg-white" animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }} transition={{ duration: 0.2 }} />
@@ -304,7 +348,12 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
         <span className="font-['Cormorant_Garamond'] font-light italic text-[#c49a32] select-none" style={{ writingMode: "vertical-rl", fontSize: 15, letterSpacing: "0.14em" }}>
           {personalInfo.name}
         </span>
-        <motion.span className="w-[9px] h-[9px] rounded-full bg-[#4dba87] block" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2.5, repeat: Infinity }} />
+        <div className="flex flex-col items-center gap-3">
+          <button onClick={toggleTheme} className="text-[#3a7a5e] hover:text-[#88bfa4] transition-colors" title={isDark ? "Light mode" : "Dark mode"}>
+            {isDark ? <SunIcon className="w-[16px] h-[16px]" /> : <MoonIcon className="w-[16px] h-[16px]" />}
+          </button>
+          <motion.span className="w-[9px] h-[9px] rounded-full bg-[#4dba87] block" animate={{ opacity: [1, 0.3, 1] }} transition={{ duration: 2.5, repeat: Infinity }} />
+        </div>
       </div>
 
       <AnimatePresence>
@@ -314,7 +363,8 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
             <motion.aside
               initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }}
               transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:hidden fixed left-0 top-0 h-screen w-[300px] z-[70] bg-[#0b3d2e] flex flex-col justify-between px-8 py-10 overflow-hidden"
+              className="lg:hidden fixed left-0 top-0 h-screen w-[300px] z-[70] flex flex-col justify-between px-8 py-10 overflow-hidden transition-colors duration-300"
+              style={{ backgroundColor: sidebarBg }}
             >
               <span className="absolute bottom-[-0.1em] right-[-0.1em] font-['Cormorant_Garamond'] font-light italic text-white pointer-events-none select-none leading-none" style={{ fontSize: 210, opacity: 0.035 }} aria-hidden>TF</span>
               <div className="relative z-10">
@@ -356,6 +406,13 @@ export function Sidebar({ collapsed = false, onScrollRequest, onToggle }: Props)
                   <span className="font-['DM_Mono'] font-semibold text-[13px] tracking-[0.06em] text-[#88bfa4]">open to opportunities</span>
                 </div>
                 <p className="font-['DM_Mono'] font-semibold text-[13px] tracking-[0.06em] text-[#3a7a5e]">{personalInfo.location}</p>
+                <button
+                  onClick={toggleTheme}
+                  className="flex items-center gap-2 text-[#3a7a5e] hover:text-[#88bfa4] transition-colors"
+                >
+                  {isDark ? <SunIcon className="w-[16px] h-[16px]" /> : <MoonIcon className="w-[16px] h-[16px]" />}
+                  <span className="font-['DM_Mono'] font-semibold text-[12px] tracking-[0.1em] uppercase">{isDark ? "light mode" : "dark mode"}</span>
+                </button>
               </div>
             </motion.aside>
           </>

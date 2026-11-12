@@ -66,28 +66,28 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="border-t border-[#e2ddd2] bg-[#fdfcf8]">
+    <section id="contact" className="border-t border-[#e2ddd2] dark:border-[#243828] bg-[#fdfcf8] dark:bg-[#0d1f18] transition-colors duration-300">
       {/* Stack vertically on mobile, side-by-side on lg+ */}
       <div className="grid grid-cols-1 lg:grid-cols-2">
 
         {/* ── LEFT: header + socials ── */}
-        <div className="px-5 sm:px-8 md:px-12 lg:px-16 py-16 sm:py-20 lg:py-32 flex flex-col justify-center lg:border-r border-[#e2ddd2]">
+        <div className="px-5 sm:px-8 md:px-12 lg:px-16 py-16 sm:py-20 lg:py-32 flex flex-col justify-center lg:border-r border-[#e2ddd2] dark:border-[#243828]">
 
-          <motion.p {...fadeUp(0)} className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.16em] sm:tracking-[0.18em] uppercase text-[#8a6800] mb-4 sm:mb-5">
+          <motion.p {...fadeUp(0)} className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.16em] sm:tracking-[0.18em] uppercase text-[#8a6800] dark:text-[#c8a040] mb-4 sm:mb-5">
             get in touch
           </motion.p>
 
           <motion.h2
             {...fadeUp(0.05)}
-            className="font-['Cormorant_Garamond'] font-light text-[#16130e] leading-[1.0] tracking-[-0.02em] mb-5 sm:mb-6"
+            className="font-['Cormorant_Garamond'] font-light text-[#16130e] dark:text-white leading-[1.0] tracking-[-0.02em] mb-5 sm:mb-6"
             style={{ fontSize: "clamp(40px, 6vw, 68px)" }}
           >
-            Let's <em className="text-[#0b3d2e] not-italic italic">Connect</em>
+            Let's <em className="text-[#0b3d2e] dark:text-[#7fbfa0] not-italic italic">Connect</em>
           </motion.h2>
 
-          <motion.span {...fadeUp(0.08)} className="block w-8 h-[2px] bg-[#a07c20] mb-6 sm:mb-8" />
+          <motion.span {...fadeUp(0.08)} className="block w-8 h-[2px] bg-[#a07c20] dark:bg-[#8a6820] mb-6 sm:mb-8" />
 
-          <motion.p {...fadeUp(0.1)} className="font-['DM_Mono'] text-[13px] sm:text-[15px] leading-[1.9] text-[#2a231a] mb-10 sm:mb-14 max-w-[420px]">
+          <motion.p {...fadeUp(0.1)} className="font-['DM_Mono'] text-[13px] sm:text-[15px] leading-[1.9] text-[#2a231a] dark:text-[#e8e8e8] mb-10 sm:mb-14 max-w-[420px]">
             I'd love to get to know you. Whether it's about a role, a collaboration, or just to say hi — my inbox is always open.
           </motion.p>
 
@@ -100,20 +100,20 @@ export function Contact() {
                 href={s.href}
                 target={s.label !== "Email" ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-[#e2ddd2] bg-[#f7f4ed] hover:border-[#7fbfa0] hover:bg-[#edf5f0] transition-all duration-200 group"
+                className="flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl border-2 border-[#e2ddd2] dark:border-[#243828] bg-[#f7f4ed] dark:bg-[#162419] hover:border-[#7fbfa0] dark:hover:border-[#2d6648] hover:bg-[#edf5f0] dark:hover:bg-[#1a3d2a] transition-all duration-200 group"
               >
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0b3d2e] flex items-center justify-center text-white flex-shrink-0 group-hover:bg-[#145c42] transition-colors duration-200">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0b3d2e] dark:bg-[#1a3d2a] flex items-center justify-center text-white flex-shrink-0 group-hover:bg-[#145c42] dark:group-hover:bg-[#2d6648] transition-colors duration-200">
                   {s.icon}
                 </div>
                 <div className="min-w-0">
-                  <p className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#928c82] mb-0.5">
+                  <p className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#928c82] dark:text-[#cccccc] mb-0.5">
                     {s.label}
                   </p>
-                  <p className="font-['DM_Mono'] text-[12px] sm:text-[14px] text-[#2a231a] truncate">
+                  <p className="font-['DM_Mono'] text-[12px] sm:text-[14px] text-[#2a231a] dark:text-[#e8e8e8] truncate">
                     {s.value}
                   </p>
                 </div>
-                <span className="ml-auto font-['DM_Mono'] text-[14px] sm:text-[15px] text-[#c8c0b4] group-hover:text-[#0b3d2e] transition-colors duration-200 flex-shrink-0">
+                <span className="ml-auto font-['DM_Mono'] text-[14px] sm:text-[15px] text-[#c8c0b4] dark:text-[#aaaaaa] group-hover:text-[#0b3d2e] dark:group-hover:text-[#7fbfa0] transition-colors duration-200 flex-shrink-0">
                   →
                 </span>
               </motion.a>
@@ -126,16 +126,16 @@ export function Contact() {
             href={personalInfo.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-['DM_Mono'] font-semibold text-[13px] sm:text-[15px] tracking-[0.08em] lowercase px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-[#d4b86a] text-[#8a6800] hover:bg-[#faf3e0] transition-all duration-200 w-fit"
+            className="font-['DM_Mono'] font-semibold text-[13px] sm:text-[15px] tracking-[0.08em] lowercase px-6 sm:px-8 py-3 sm:py-4 rounded-full border-2 border-[#d4b86a] dark:border-[#8a6820] text-[#8a6800] dark:text-[#c8a040] hover:bg-[#faf3e0] dark:hover:bg-[#2a2010] transition-all duration-200 w-fit"
           >
             view my résumé ↗
           </motion.a>
         </div>
 
         {/* ── RIGHT: form ── */}
-        <div className="px-5 sm:px-8 md:px-12 lg:px-16 py-16 sm:py-20 lg:py-32 flex flex-col justify-center bg-[#f7f4ed] border-t lg:border-t-0 border-[#e2ddd2]">
+        <div className="px-5 sm:px-8 md:px-12 lg:px-16 py-16 sm:py-20 lg:py-32 flex flex-col justify-center bg-[#f7f4ed] dark:bg-[#111c16] border-t lg:border-t-0 border-[#e2ddd2] dark:border-[#243828] transition-colors duration-300">
 
-          <motion.p {...fadeUp(0.05)} className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.16em] sm:tracking-[0.18em] uppercase text-[#928c82] mb-8 sm:mb-10">
+          <motion.p {...fadeUp(0.05)} className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.16em] sm:tracking-[0.18em] uppercase text-[#928c82] dark:text-[#cccccc] mb-8 sm:mb-10">
             send a message
           </motion.p>
 
@@ -144,54 +144,54 @@ export function Contact() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <motion.div {...fadeUp(0.08)} className="flex flex-col gap-2">
-                <label className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#6b6358]">Name</label>
+                <label className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#6b6358] dark:text-[#cccccc]">Name</label>
                 <input
                   type="text" name="name" value={form.name} onChange={handleChange}
                   placeholder="Your name" required
-                  className="bg-[#fdfcf8] border-2 border-[#e2ddd2] rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 font-['DM_Mono'] text-[13px] sm:text-[15px] text-[#16130e] placeholder:text-[#c8c0b4] focus:border-[#0b3d2e] focus:outline-none transition-colors duration-200"
+                  className="bg-[#fdfcf8] dark:bg-[#162419] border-2 border-[#e2ddd2] dark:border-[#243828] rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 font-['DM_Mono'] text-[13px] sm:text-[15px] text-[#16130e] dark:text-white placeholder:text-[#c8c0b4] dark:placeholder:text-[#3a3830] focus:border-[#0b3d2e] dark:focus:border-[#2d6648] focus:outline-none transition-colors duration-200"
                 />
               </motion.div>
 
               <motion.div {...fadeUp(0.1)} className="flex flex-col gap-2">
-                <label className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#6b6358]">Email</label>
+                <label className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#6b6358] dark:text-[#cccccc]">Email</label>
                 <input
                   type="email" name="email" value={form.email} onChange={handleChange}
                   placeholder="your@email.com" required
-                  className="bg-[#fdfcf8] border-2 border-[#e2ddd2] rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 font-['DM_Mono'] text-[13px] sm:text-[15px] text-[#16130e] placeholder:text-[#c8c0b4] focus:border-[#0b3d2e] focus:outline-none transition-colors duration-200"
+                  className="bg-[#fdfcf8] dark:bg-[#162419] border-2 border-[#e2ddd2] dark:border-[#243828] rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 font-['DM_Mono'] text-[13px] sm:text-[15px] text-[#16130e] dark:text-white placeholder:text-[#c8c0b4] dark:placeholder:text-[#3a3830] focus:border-[#0b3d2e] dark:focus:border-[#2d6648] focus:outline-none transition-colors duration-200"
                 />
               </motion.div>
             </div>
 
             <motion.div {...fadeUp(0.12)} className="flex flex-col gap-2">
-              <label className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#6b6358]">Subject</label>
+              <label className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#6b6358] dark:text-[#cccccc]">Subject</label>
               <input
                 type="text" name="subject" value={form.subject} onChange={handleChange}
                 placeholder="What's this about?" required
-                className="bg-[#fdfcf8] border-2 border-[#e2ddd2] rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 font-['DM_Mono'] text-[13px] sm:text-[15px] text-[#16130e] placeholder:text-[#c8c0b4] focus:border-[#0b3d2e] focus:outline-none transition-colors duration-200"
+                className="bg-[#fdfcf8] dark:bg-[#162419] border-2 border-[#e2ddd2] dark:border-[#243828] rounded-xl px-4 sm:px-5 py-3 sm:py-3.5 font-['DM_Mono'] text-[13px] sm:text-[15px] text-[#16130e] dark:text-white placeholder:text-[#c8c0b4] dark:placeholder:text-[#3a3830] focus:border-[#0b3d2e] dark:focus:border-[#2d6648] focus:outline-none transition-colors duration-200"
               />
             </motion.div>
 
             <motion.div {...fadeUp(0.14)} className="flex flex-col gap-2">
-              <label className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#6b6358]">Message</label>
+              <label className="font-['DM_Mono'] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.14em] uppercase text-[#6b6358] dark:text-[#cccccc]">Message</label>
               <textarea
                 name="message" value={form.message} onChange={handleChange}
                 placeholder="Tell me more — I'd love to hear about you, your project, or what you're working on..."
                 required rows={7}
-                className="bg-[#fdfcf8] border-2 border-[#e2ddd2] rounded-xl px-4 sm:px-5 py-3 sm:py-4 font-['DM_Mono'] text-[13px] sm:text-[15px] text-[#16130e] placeholder:text-[#c8c0b4] focus:border-[#0b3d2e] focus:outline-none transition-colors duration-200 resize-none leading-[1.8]"
+                className="bg-[#fdfcf8] dark:bg-[#162419] border-2 border-[#e2ddd2] dark:border-[#243828] rounded-xl px-4 sm:px-5 py-3 sm:py-4 font-['DM_Mono'] text-[13px] sm:text-[15px] text-[#16130e] dark:text-white placeholder:text-[#c8c0b4] dark:placeholder:text-[#3a3830] focus:border-[#0b3d2e] dark:focus:border-[#2d6648] focus:outline-none transition-colors duration-200 resize-none leading-[1.8]"
               />
             </motion.div>
 
             <motion.div {...fadeUp(0.16)} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
               <button
                 type="submit" disabled={status === "sending"}
-                className="font-['DM_Mono'] font-semibold text-[13px] sm:text-[15px] tracking-[0.08em] lowercase px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#0b3d2e] text-white hover:bg-[#145c42] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="font-['DM_Mono'] font-semibold text-[13px] sm:text-[15px] tracking-[0.08em] lowercase px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-[#0b3d2e] dark:bg-[#1a3d2a] text-white hover:bg-[#145c42] dark:hover:bg-[#2d6648] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === "sending" ? "sending..." : "send message →"}
               </button>
 
               {status === "success" && (
                 <motion.p initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }}
-                  className="font-['DM_Mono'] text-[13px] sm:text-[14px] text-[#0d5c40]">
+                  className="font-['DM_Mono'] text-[13px] sm:text-[14px] text-[#0d5c40] dark:text-[#7fbfa0]">
                   ✓ Sent! I'll get back to you soon.
                 </motion.p>
               )}

@@ -76,7 +76,7 @@ export default function App() {
   const marginLeft = isDesktop ? (collapsed ? 56 : 360) : 56;
 
   return (
-    <div className="bg-[#fdfcf8] min-h-screen">
+    <div className="bg-[#fdfcf8] dark:bg-[#0d1f18] min-h-screen transition-colors duration-300">
       <Sidebar
         collapsed={collapsed}
         onScrollRequest={setScrollTarget}

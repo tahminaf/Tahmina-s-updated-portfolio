@@ -34,7 +34,7 @@ export function TopBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -80, opacity: 0 }}
           transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full bg-[#fdfcf8] border-b border-[#e2ddd2] flex items-center h-20 overflow-hidden fixed top-0 z-40"
+          className="w-full bg-[#fdfcf8] dark:bg-[#111c16] border-b border-[#e2ddd2] dark:border-[#243828] flex items-center h-20 overflow-hidden fixed top-0 z-40 transition-colors duration-300"
           /* Left offset matches the sidebar strip so banner doesn't sit under it */
           style={{ left: 56 }}
         >
@@ -48,7 +48,7 @@ export function TopBanner() {
               {[...Array(4)].map((_, i) => (
                 <span
                   key={i}
-                  className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.14em] sm:tracking-[0.18em] uppercase text-[#928c82] mr-10 sm:mr-16"
+                  className="font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.14em] sm:tracking-[0.18em] uppercase text-[#928c82] dark:text-[#cccccc] mr-10 sm:mr-16"
                 >
                   {marqueeText}
                 </span>
@@ -57,7 +57,7 @@ export function TopBanner() {
           </div>
 
           {/* Year */}
-          <span className="flex-shrink-0 font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.14em] text-[#c8c0b4] pr-4 sm:pr-8">
+          <span className="flex-shrink-0 font-['DM_Mono'] font-semibold text-[11px] sm:text-[13px] tracking-[0.14em] text-[#c8c0b4] dark:text-[#aaaaaa] pr-4 sm:pr-8">
             2026
           </span>
         </motion.div>
